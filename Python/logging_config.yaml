@@ -1,0 +1,34 @@
+version: 1
+formatters:
+    simple:
+        format: "[%(name)s | %(levelname)s]:%(lineno)s - %(message)s"
+    main:
+        format: "[%(asctime)s]{%(name)s | %(levelname)s}:%(lineno)s - %(message)s"
+handlers:
+    console:
+        class: logging.StreamHandler
+        level: DEBUG
+        formatter: main
+        stream: ext://sys.stdout
+    users:
+        class: logging.handlers.RotatingFileHandler
+        formatter: main
+        filename: user.log
+    general:
+        class: logging.handlers.RotatingFileHandler
+        formatter: main
+        filename: general.log
+    api:
+        class: logging.handlers.RotatingFileHandler
+        formatter: main
+        filename: api.log
+loggers:
+    user:
+        level: DEBUG
+        handlers: [users]
+    general:
+        level: DEBUG
+        handlers: [general]
+    api:
+        level: DEBUG
+        handlers: [api]

@@ -1,7 +1,7 @@
 import logging
+import re
 
 from pymongo.collection import Collection
-
 
 logger: logging.Logger = None
 keyDB: Collection = None
@@ -24,3 +24,33 @@ def validate_APIKey(
 
     key = keyDB.find_one({"key": key})
     return False if key is None else True
+
+
+def validate_password(password: str) -> bool:
+    """
+    Validates that a password is meeting the minimum criteria, with confirmation.
+    It must at minimum
+        - Be of length 8
+        - Contain minimum 1 number
+        - Contain minimum 1 lowercase letter
+        - Contain minimum 1 uppercase letter
+        - 1 non-alphanumeric character
+
+    Args:
+        password (str): The password to validate
+
+    Returns:
+        bool: True if valid, False if invalid
+    """
+    if len(password) < 8:
+        return False
+    if re.search("[0-9]+", password) == None: # Number
+        return False
+    if re.search("[a-z]+", password) == None: # Lowercase
+        return False
+    if re.search("[A-Z]+", password) == None: # Uppercase
+        return False
+    if re.search("[^\w\d\s]+", password) == None: # Special character
+        return False
+
+    return True

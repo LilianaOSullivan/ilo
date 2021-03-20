@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 class User(BaseModel):
     username: str
-    password: Union[str, bytes]
+    password: str
     public_key: str
     api_key: str
 

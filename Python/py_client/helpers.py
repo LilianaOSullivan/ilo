@@ -6,18 +6,31 @@ import requests as r
 from Crypto.Cipher import PKCS1_OAEP
 from Crypto.PublicKey import RSA
 
-ilo_user: str = "0.0.0.0:8000/user"
+ilo_user: str = "https://0.0.0.0:8000/user"
 api_key: str = "399d79ac-8725-11eb-83c2-acde48001122"
 
 
 def get_personal_private_key(username: str) -> Tuple[RSA.RsaKey, RSA.RsaKey]:
+    """Retrieves a private and public from disk for a specified username.
+
+    Args:
+        username (str): The username to get the private key of
+
+    Returns:
+        Tuple[RSA.RsaKey, RSA.RsaKey]: [Private Key, Public Key]
+    """
     private_key = None
-    if os.path.isfile(f"{username}{os.sep}private_key.pem"):
-        with open(f"{username}{os.sep}private_key.pem", "r") as f:
+    if not os.path.exists(f"users/{username}"):
+        os.mkdir(f"users/{username}")
+        private_key = RSA.generate(4096)
+        with open(f"users{os.sep}{username}{os.sep}private_key.pem", "w") as f:
+            f.write(private_key.export_key().decode("utf-8"))
+    elif os.path.isfile(f"users{os.sep}{username}{os.sep}private_key.pem"):
+        with open(f"users{os.sep}{username}{os.sep}private_key.pem", "r") as f:
             private_key = RSA.import_key(f.read())
     else:
         private_key = RSA.generate(4096)
-        with open(f"{username}{os.sep}private_key.pem", "w") as f:
+        with open(f"users{os.sep}{username}{os.sep}private_key.pem", "w") as f:
             f.write(private_key.export_key().decode("utf-8"))
     return private_key, private_key.public_key()
 
@@ -36,13 +49,6 @@ def register(username: str, password: str) -> bool:
     """
     private_key = RSA.generate(4096)
     public_key = private_key.public_key()
-    if not os.path.exists(username):
-        os.makedirs(username)
-    with open(f"{username}{os.sep}private_key.pem", "w") as priv_key, open(
-        "public_key.pem", "w"
-    ) as pub_key:
-        priv_key.write(private_key.export_key().decode("utf-8"))
-        pub_key.write(public_key.export_key().decode("utf-8"))
     public_key_str: str = base64.b64encode(public_key.export_key("DER")).decode()
     response = r.post(
         ilo_user,
@@ -52,5 +58,12 @@ def register(username: str, password: str) -> bool:
             "public_key": public_key_str,
             "api_key": api_key,
         },
+        verify=False,
     )
-    return response.status_code == 201
+    if response.status_code == 201:
+        if not os.path.exists(f"users/{username}"):
+            os.mkdir(f"users/{username}")
+        with open(f"users{os.sep}{username}{os.sep}private_key.pem", "w") as f:
+            f.write(private_key.export_key().decode("utf-8"))
+        return True
+    return False

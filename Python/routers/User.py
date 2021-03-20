@@ -30,7 +30,8 @@ def usernameExists(username: str):
         return {"detail": "Username Exists", "Exists": True}
     return {"detail": "Username doesn't exist", "Exists": False}
 
-# FIXME: This needs testing. Code written, not tested 
+
+# FIXME: This needs testing. Code written, not tested
 @UserRouter.get(path="/user/{username}")  # TODO: Create OpenAPI docs
 def getPublicKey(username: str):
     result = userDB.find_one({"username": username})
@@ -39,7 +40,7 @@ def getPublicKey(username: str):
             status_code=HTTPStatus.CONFLICT,
             detail=f"The user {username} does not exist",
         )
-    return {"detail": result['public_key']}
+    return {"detail": result["public_key"]}
 
 
 # Create User
@@ -74,9 +75,15 @@ def createUser(user: User):
             status_code=HTTPStatus.CONFLICT,
             detail="User already exists. A logged in user can delete their account by a delete request to /user",
         )
-
+    if not Helper.validate_password(user.password):
+        raise HTTPException(
+            status_code=HTTPStatus.CONFLICT,  # TODO This likely should be something else
+            detail="This password does not meet the minimum requirements.",
+        )
     user.password = _hasher.hash(user.password)
-    userDB.insert_one(vars(user))
+    user_dict: dict = vars(user)
+    user_dict.update(dict(friends=[]))
+    userDB.insert_one(user_dict)
     return {"detail": f"Successfully created {user.username}"}
 
 
@@ -112,6 +119,37 @@ def deleteUser(user: User):
     userDB.delete_one(query)
     _userLogger.info(f"Successfully deleted {user.username}")
     return {"detail": f"Successfully deleted {user.username}"}
+
+
+# Get User Friends
+@UserRouter.head(  # TODO: Fill in information
+    path="/user",
+    status_code=HTTPStatus.OK,
+    summary="Deletes a user.",
+    responses={
+        HTTPStatus.CONFLICT.value: {
+            "description": "Gets a users friends.",
+            "model": Detail,
+            "content": {
+                "application/json": {
+                    "example": {"detail": "The user Alex13 does not exist"}
+                },
+            },
+        },
+    },
+)
+def get_friends(user: User):
+    _userLogger.info(f"Processing friends for:{user.username}")
+    query = userDB.find_one({"username": user.username})
+    if query is None:
+        _userLogger.info(
+            f"Username {user.username} does not exists to delete. Raising Exception."
+        )
+        raise HTTPException(
+            status_code=HTTPStatus.CONFLICT,
+            detail=f"The user {user.username} does not exist",
+        )
+    return {"detail": str(query["friends"])}
 
 
 # Login User

@@ -1108,3 +1108,39 @@
 [2021-03-20 12:38:45,131]{user | INFO}:24 - Connected to userDB
 [2021-03-20 12:45:28,980]{user | INFO}:18 - Connecting to userDB: mongodb://127.0.0.1:27017//ilo/users
 [2021-03-20 12:45:28,982]{user | INFO}:24 - Connected to userDB
+[2021-03-20 15:24:37,759]{user | INFO}:18 - Connecting to userDB: mongodb://127.0.0.1:27017//ilo/users
+[2021-03-20 15:24:37,761]{user | INFO}:24 - Connected to userDB
+[2021-03-20 15:26:15,866]{user | INFO}:66 - Processing Create :MySuperUser
+[2021-03-20 16:37:27,836]{user | INFO}:18 - Connecting to userDB: mongodb://127.0.0.1:27017//ilo/users
+[2021-03-20 16:37:27,838]{user | INFO}:24 - Connected to userDB
+[2021-03-20 16:37:59,535]{user | INFO}:66 - Processing Create :Kitten
+[2021-03-20 16:38:24,318]{user | INFO}:66 - Processing Create :Kitten
+[2021-03-20 16:40:05,758]{user | INFO}:18 - Connecting to userDB: mongodb://127.0.0.1:27017//ilo/users
+[2021-03-20 16:40:05,760]{user | INFO}:24 - Connected to userDB
+[2021-03-20 16:41:25,512]{user | INFO}:18 - Connecting to userDB: mongodb://127.0.0.1:27017//ilo/users
+[2021-03-20 16:41:25,513]{user | INFO}:24 - Connected to userDB
+[2021-03-20 16:42:29,705]{user | INFO}:18 - Connecting to userDB: mongodb://127.0.0.1:27017//ilo/users
+[2021-03-20 16:42:29,706]{user | INFO}:24 - Connected to userDB
+[2021-03-20 16:43:29,530]{user | INFO}:66 - Processing Create :testuser7
+[2021-03-20 16:43:37,061]{user | INFO}:66 - Processing Create :testuser7
+[2021-03-20 16:43:54,065]{user | INFO}:18 - Connecting to userDB: mongodb://127.0.0.1:27017//ilo/users
+[2021-03-20 16:43:54,067]{user | INFO}:24 - Connected to userDB
+[2021-03-20 16:44:00,398]{user | INFO}:66 - Processing Create :testuser7
+[2021-03-20 16:44:01,642]{user | INFO}:66 - Processing Create :testuser7
+[2021-03-20 16:44:07,466]{user | INFO}:66 - Processing Create :testuser7
+[2021-03-20 16:44:15,202]{user | INFO}:18 - Connecting to userDB: mongodb://127.0.0.1:27017//ilo/users
+[2021-03-20 16:44:15,204]{user | INFO}:24 - Connected to userDB
+[2021-03-20 16:44:18,700]{user | INFO}:66 - Processing Create :testuser7
+[2021-03-20 16:44:19,827]{user | INFO}:66 - Processing Create :testuser7
+[2021-03-20 16:44:28,136]{user | INFO}:66 - Processing Create :testuser7
+[2021-03-20 16:45:19,809]{user | INFO}:66 - Processing Create :testuser7
+[2021-03-20 16:45:27,231]{user | INFO}:18 - Connecting to userDB: mongodb://127.0.0.1:27017//ilo/users
+[2021-03-20 16:45:27,233]{user | INFO}:24 - Connected to userDB
+[2021-03-20 16:45:31,319]{user | INFO}:66 - Processing Create :testuser7
+[2021-03-20 16:48:31,655]{user | INFO}:18 - Connecting to userDB: mongodb://127.0.0.1:27017//ilo/users
+[2021-03-20 16:48:31,657]{user | INFO}:24 - Connected to userDB
+[2021-03-20 16:48:38,912]{user | INFO}:66 - Processing Create :testuser7
+[2021-03-20 16:50:15,343]{user | INFO}:66 - Processing Create :username!
+[2021-03-20 16:51:16,671]{user | INFO}:66 - Processing Create :pp
+[2021-03-20 17:04:55,257]{user | INFO}:66 - Processing Create :Kitten
+[2021-03-20 17:06:46,639]{user | INFO}:66 - Processing Create :Kitten

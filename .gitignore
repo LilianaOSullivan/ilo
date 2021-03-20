@@ -1,0 +1,6 @@
+
+*.pyc
+*.crt
+*.key
+*.log
+*.DS_Store

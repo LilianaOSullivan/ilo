@@ -1,3 +1,26 @@
 {
-    "python.pythonPath": "/usr/local/bin/python3"
+    "python.pythonPath": "/usr/local/bin/python3",
+    "cSpell.words": [
+        "Helvetica",
+        "NOFILE",
+        "OAEP",
+        "PKCS",
+        "RLIMIT",
+        "ciphertext",
+        "deiconify",
+        "hexlify",
+        "jsonify",
+        "keypair",
+        "mongodb",
+        "padx",
+        "pady",
+        "pydantic",
+        "relx",
+        "setrlimit",
+        "tkmacosx",
+        "unhexlify",
+        "yview"
+    ],
+    "python.linting.mypyEnabled": true,
+    "python.linting.enabled": true
 }

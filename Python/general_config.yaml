@@ -2,3 +2,4 @@ MongoDB_address: "mongodb://127.0.0.1:27017/"
 MongoDB_database: ilo
 MongoDB_user_collection: users
 MongoDB_apiKey_collection: api_keys
+Potion_IP: "0.0.0.0:4000"

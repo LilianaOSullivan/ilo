@@ -13,8 +13,18 @@ def home():
 
 
 @TestClient.get(path="/message")
-def home():
+def message():
     with open("client/sendMessage.html") as f:
+        return f.read()
+
+@TestClient.get(path="/cryptodemo")
+def demo():
+    with open("client/SubtleCryptoDemo.html") as f:
+        return f.read()
+
+@TestClient.get(path="/genkey")
+def genkeys():
+    with open("client/GenKeys.html") as f:
         return f.read()
 
 

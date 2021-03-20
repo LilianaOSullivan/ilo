@@ -2,7 +2,7 @@ import logging
 import time
 import uuid
 from http import HTTPStatus
-from typing import Collection, Dict
+from typing import Dict
 
 import Config
 import pymongo
@@ -29,8 +29,6 @@ def createKey():
         {
             "key": key,
             "lastUpdated": time.time(),
-            "logged_in": False,
-            "users": [],
         }
     )
     return {"detail": key}
@@ -60,3 +58,7 @@ def deleteKey(key: str):
             detail=f"The API Key {key} does not exist",
         )
     return {"detail": f"Successfully deleted {key}"}
+
+
+def fnd_int():
+    pass

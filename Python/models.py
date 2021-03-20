@@ -6,10 +6,8 @@ from pydantic import BaseModel
 class User(BaseModel):
     username: str
     password: Union[str, bytes]
-    public_key: Optional[str] = None
-    logged_in: Optional[bool] = None
-
-    apiKey: Optional[str] = None
+    public_key: str
+    api_key: str
 
 
 class Detail(BaseModel):

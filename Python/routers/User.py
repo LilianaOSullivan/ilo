@@ -28,7 +28,18 @@ _userLogger.info("Connected to userDB")
 def usernameExists(username: str):
     if userDB.find_one({"username": username}) is not None:
         return {"detail": "Username Exists", "Exists": True}
-    return {"detail": "Username dosent exist", "Exists": False}
+    return {"detail": "Username doesn't exist", "Exists": False}
+
+# FIXME: This needs testing. Code written, not tested 
+@UserRouter.get(path="/user/{username}")  # TODO: Create OpenAPI docs
+def getPublicKey(username: str):
+    result = userDB.find_one({"username": username})
+    if result is None:
+        raise HTTPException(
+            status_code=HTTPStatus.CONFLICT,
+            detail=f"The user {username} does not exist",
+        )
+    return {"detail": result['public_key']}
 
 
 # Create User
@@ -51,8 +62,8 @@ def usernameExists(username: str):
     },
 )
 def createUser(user: User):
-    _userLogger.info(f"Procesing Create :{user.username}")
-    if not Helper.validate_APIKey(user.apiKey):
+    _userLogger.info(f"Processing Create :{user.username}")
+    if not Helper.validate_APIKey(key=user.api_key):
         raise HTTPException(
             status_code=HTTPStatus.BAD_REQUEST,
             detail="Invalid API Key",
@@ -121,8 +132,8 @@ def deleteUser(user: User):
     },
 )
 def loginUser(user: User):
-    _userLogger.info(f"Logging in {user.username} with key {user.apiKey}")
-    if not Helper.validate_APIKey(user.apiKey):
+    _userLogger.info(f"Logging in {user.username} with key {user.api_key}")
+    if not Helper.validate_APIKey(user.api_key):
         raise HTTPException(
             status_code=HTTPStatus.BAD_REQUEST, detail="Invalid API Key"
         )
@@ -136,7 +147,7 @@ def loginUser(user: User):
 
     try:
         _hasher.verify(result["password"], user.password)
-    except (VerificationError, VerifyMismatchError) as e:
+    except (VerificationError, VerifyMismatchError):
         raise HTTPException(
             status_code=HTTPStatus.BAD_REQUEST,
             detail="Invalid Password or username",

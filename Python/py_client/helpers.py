@@ -1,8 +1,11 @@
 import base64
 import os
+import threading
+from tkinter.constants import END
 from typing import Tuple
 
 import requests as r
+import websocket
 from Crypto.Cipher import PKCS1_OAEP
 from Crypto.PublicKey import RSA
 
@@ -67,3 +70,14 @@ def register(username: str, password: str) -> bool:
             f.write(private_key.export_key().decode("utf-8"))
         return True
     return False
+
+
+def connect_new_chatroom(self, name: str):
+    self.ws.close()
+    self.textCons.delete(1.0,END)
+    self.textCons.clear()
+    self.ws = websocket.WebSocketApp(
+        f"ws://localhost:4000/ws/{name}", on_message=self.message
+    )
+    self.run_thread = threading.Thread(target=self.run)
+    self.run_thread.start()

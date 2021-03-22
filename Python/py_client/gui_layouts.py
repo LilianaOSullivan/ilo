@@ -1,7 +1,8 @@
 from tkinter import *
-from tkinter import messagebox #? Caused by __all__ ?
+from tkinter import messagebox  # ? Caused by __all__ ?
 import helpers
 import tkmacosx
+
 
 def login(self):
     self.login = Toplevel(bg="#1e1e1e")
@@ -70,7 +71,7 @@ def login(self):
         borderless=1,
         bg="#1e1e1e",
         fg="#ffffff",
-        command=lambda: register_command(self),
+        command=lambda: _register_command(self),
     )
     self.register_button.place(x=20, y=300, width=74, height=34)
 
@@ -123,6 +124,17 @@ def chatroom(self, name):
         borderless=1,
         command=lambda: self.send_button(self.entryMsg.get()),
     )
+    self.newChat = tkmacosx.Button(
+        self.Window,
+        text="New Chatroom",
+        font="Helvetica 11 bold",
+        width=120,
+        bg="#1e1e1e",
+        fg="#ffffff",
+        borderless=1,
+        command=lambda: _popup(self),
+    )
+    self.newChat.place(x=10, y=10)
     self.Window.bind("<Return>", lambda x: self.send_button(self.entryMsg.get()))
     self.buttonMsg.place(relx=0.77, rely=0.008, relheight=0.06, relwidth=0.22)
     self.textCons.config(cursor="arrow")
@@ -132,7 +144,23 @@ def chatroom(self, name):
     self.textCons.config(state=DISABLED)
 
 
-def register_command(self):
+def _popup(self):
+    self.popup = Toplevel(self.Window)
+    self.l = Label(self.popup,text="Chatroom name")
+    self.l.pack()
+    self.e = Entry(self.popup)
+    self.e.pack()
+    self.b=tkmacosx.Button(self.popup,text="Connect",command=lambda:_popup_cleanup(self))
+    self.b.pack()
+    self.Window.wait_window(self.popup)
+
+def _popup_cleanup(self):
+    name = self.e.get()
+    helpers.connect_new_chatroom(self,name)
+    self.popup.destroy()
+    del self.popup
+
+def _register_command(self):
     username: str = self.entry_name.get()
     password: str = self.entry_password.get()
     if helpers.register(username, password):

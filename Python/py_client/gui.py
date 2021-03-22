@@ -29,29 +29,28 @@ def jsonify(m: str):
 
 
 class GUI:
+    def message(self,ws, m):
+        for decrypt in [self.decrypt_me, decrypt_other]:
+            try:
+                received = base64.b64decode(m)
+                m = decrypt(received).decode("utf-8")
+                break
+            except Exception:
+                pass
+        else:
+            m = self.msg
+        self.textCons.config(state=NORMAL)
+        self.textCons.insert(END, m + "\n\n")
+        self.textCons.config(state=DISABLED)
+        self.textCons.see(END)
     def __init__(self):
         self.Window = Tk()
         self.Window.withdraw()
         gui_layouts.login(self)
 
-        def message(ws, m):
-            for decrypt in [self.decrypt_me, decrypt_other]:
-                try:
-                    received = base64.b64decode(m)
-                    m = decrypt(received).decode("utf-8")
-                    break
-                except Exception:
-                    pass
-            else:
-                m = self.msg
-            self.textCons.config(state=NORMAL)
-            self.textCons.insert(END, m + "\n\n")
-            self.textCons.config(state=DISABLED)
-            self.textCons.see(END)
-
         self.ws = websocket.WebSocketApp(
-            "ws://localhost:4000/ws/chat",
-            on_message=message,
+            "ws://localhost:4000/ws/testroom",
+            on_message=self.message,
         )
         self.Window.mainloop()
 
@@ -63,8 +62,8 @@ class GUI:
 
         self.login.destroy()
         gui_layouts.chatroom(self, name)
-        self.rcv = threading.Thread(target=self.run)
-        self.rcv.start()
+        self.run_thread = threading.Thread(target=self.run)
+        self.run_thread.start()
 
     def run(self):
         self.ws.run_forever()

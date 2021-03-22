@@ -6,3 +6,4 @@
 *.DS_Store
 Python/py_client/__pycache__
 Python/py_client/users
+Python/py_client/users/private_key.pem

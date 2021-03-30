@@ -1,15 +1,21 @@
 {
     "cSpell.words": [
         "API's",
+        "ASGI",
         "Configurability",
         "O'Sullivan",
         "Pydantic",
         "Starlette",
+        "WSGI",
         "customisation",
         "customised",
+        "keyout",
         "mkdocs",
+        "newkey",
         "performant",
+        "printf",
         "specialises",
         "termynal"
-    ]
+    ],
+    "crosshair.enabled": false
 }

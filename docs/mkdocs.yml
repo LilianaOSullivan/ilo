@@ -3,8 +3,12 @@ copyright: Copyright &copy; 2020 - 2021 Liliana O'Sullivan
 theme:
     name: material
     features:
-    - navigation.instant
+        - navigation.instant
+        - navigation.top
 
+markdown_extensions:
+    - toc:
+        permalink: true
 
 # nav:
 # - Architecture.md
@@ -17,6 +21,6 @@ theme:
 extra:
     generator: false
 extra_css:
-- css/termynal.css
+    - css/termynal.css
 extra_javascript:
-- js/termynal.js
+    - js/termynal.js

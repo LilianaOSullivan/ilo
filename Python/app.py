@@ -75,9 +75,3 @@ if __name__ == "__main__":
     import uvicorn
 
     uvicorn.run(app, host="0.0.0.0", port=8000)
-
-
-# TODO: Fix posting models. Eg User model being reused
-# TODO: Cryptography
-
-

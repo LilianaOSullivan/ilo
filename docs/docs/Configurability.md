@@ -36,3 +36,5 @@ MongoDB_user_collection: users
 MongoDB_apiKey_collection: api_keys
 Potion_IP: "87.23.73.160:1642"
 ```
+
+**Note** When setting the MongoDB_address, it is essential to provide the `mongodb://` prefix

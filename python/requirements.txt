@@ -1,0 +1,5 @@
+fastapi
+pymongo
+PyYAML
+argon2-cffi
+uvicorn

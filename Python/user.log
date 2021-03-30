@@ -1144,3 +1144,6 @@
 [2021-03-20 16:51:16,671]{user | INFO}:66 - Processing Create :pp
 [2021-03-20 17:04:55,257]{user | INFO}:66 - Processing Create :Kitten
 [2021-03-20 17:06:46,639]{user | INFO}:66 - Processing Create :Kitten
+[2021-03-23 11:53:07,921]{user | INFO}:18 - Connecting to userDB: mongodb://127.0.0.1:27017//ilo/users
+[2021-03-23 11:53:07,924]{user | INFO}:24 - Connected to userDB
+[2021-03-23 14:10:45,371]{user | INFO}:66 - Processing Create :qwerty

@@ -1,0 +1,22 @@
+site_name: Ilo Secure Communication
+copyright: Copyright &copy; 2020 - 2021 Liliana O'Sullivan
+theme:
+    name: material
+    features:
+    - navigation.instant
+
+
+# nav:
+# - Architecture.md
+# - Configurability.md
+# - Development.md
+# - Deployment.md
+# - Ilo: 'index.md'
+# - Swagger.md
+
+extra:
+    generator: false
+extra_css:
+- css/termynal.css
+extra_javascript:
+- js/termynal.js

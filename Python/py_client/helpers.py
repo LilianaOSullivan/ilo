@@ -55,7 +55,7 @@ def register(username: str, password: str) -> bool:
     public_key_str: str = base64.b64encode(public_key.export_key("DER")).decode()
     response = r.post(
         ilo_user,
-        json={
+        json = {
             "username": username,
             "password": password,
             "public_key": public_key_str,
@@ -75,7 +75,6 @@ def register(username: str, password: str) -> bool:
 def connect_new_chatroom(self, name: str):
     self.ws.close()
     self.textCons.delete(1.0,END)
-    self.textCons.clear()
     self.ws = websocket.WebSocketApp(
         f"ws://localhost:4000/ws/{name}", on_message=self.message
     )

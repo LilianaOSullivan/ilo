@@ -1,6 +1,6 @@
 from fastapi.routing import APIRouter
 from fastapi import Form, Request, HTTPException
-import Config
+from Config import Config
 from routers.User import userDB
 
 potionRouter = APIRouter()
@@ -16,8 +16,8 @@ def loggedIn(request: Request, username: str = Form("username")):
     Returns:
         bool: True if logged in, False if logged out.
     """
-    if not request.client_host == Config.Potion_IP: #Likely needs port appended
+    if not request.client_host == Config.Potion_IP:  # Likely needs port appended
         pass
     result = userDB.find_one({"username": username})
     return True
-    #return True if result is not None else False
+    # return True if result is not None else False

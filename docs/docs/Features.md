@@ -1,17 +1,18 @@
 # Features
 
-Ilo 
+Ilo provides the following features
 
-Key Features:
+## Security First
 
-* **Fast**: Highly performant with Elixir and WebSocket scalability.
-* **Scalable**: XXX
-* **Intuitive**: Created with technologies designed for their intended purpose, with documentation-focused development.
-* **Standards-based**: Based on (With full compatibility with) open standards for API's, such as OpenAPI,Swagger and JSON Schema
+Ilo was designed as a security-first platform, using modern algorithms (Such as Argon2id for hashing) and putting user privacy first. The platform was created as an inspiration for an end-to-end encrypted platform as users increasingly rely on platforms to be able to communicate.
 
-## Project layout
+## Standards-based
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+The entire system is designed around OpenAPI and JSON Schema to conform to common practice in use today. The use of OpenAPI often can allow client code generation in many languages.
+
+## Modern Technologies
+
+All technologies behind the project are based on maximising the capabilities of each technology. Development of the Python codebase utilises type-hinting, new features such as the walrus operator, docstring and more. Elixir's concurrency is utilised to send messages without Python overhead.
+
+
+*[walrus operator]: :=

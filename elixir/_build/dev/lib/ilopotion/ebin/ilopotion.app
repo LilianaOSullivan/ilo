@@ -1,0 +1,9 @@
+{application,ilopotion,
+             [{applications,[kernel,stdlib,elixir,logger,cowboy,plug,
+                             plug_cowboy,jason,httpoison]},
+              {description,"ilopotion"},
+              {modules,['Elixir.Ilopotion','Elixir.Ilopotion.Router',
+                        'Elixir.Ilopotion.SocketHandler']},
+              {registered,[]},
+              {vsn,"0.1.0"},
+              {mod,{'Elixir.Ilopotion',[]}}]}.

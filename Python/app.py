@@ -6,7 +6,7 @@ import pymongo
 import yaml
 from fastapi import FastAPI
 
-import Config
+from Config import Config
 import Helper
 
 

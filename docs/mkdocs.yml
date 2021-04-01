@@ -9,7 +9,12 @@ theme:
 markdown_extensions:
     - toc:
         permalink: true
-
+    - pymdownx.highlight
+    - pymdownx.superfences
+    - abbr
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
 # nav:
 # - Architecture.md
 # - Configurability.md

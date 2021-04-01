@@ -2,20 +2,33 @@
     "cSpell.words": [
         "API's",
         "ASGI",
+        "Additonal",
         "Configurability",
+        "Getpublickey",
         "O'Sullivan",
+        "OAEP",
         "Pydantic",
         "Starlette",
+        "Szgi",
+        "Tkinter",
         "WSGI",
+        "cookielover",
         "customisation",
         "customised",
         "keyout",
+        "materialx",
         "mkdocs",
         "newkey",
+        "openapi",
         "performant",
         "printf",
+        "pymdownx",
+        "redoc",
         "specialises",
-        "termynal"
+        "superfences",
+        "termynal",
+        "twemoji"
     ],
-    "crosshair.enabled": false
+    "crosshair.enabled": false,
+    "python.pythonPath": "/usr/local/bin/python3"
 }

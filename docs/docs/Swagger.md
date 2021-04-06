@@ -2,7 +2,7 @@
 
 FastAPI will generate Swagger documentation. This can be accessed with the IP Address, and accessing `/docs`, for example, `1.236.66.46:6921/docs`. An example of this can be seen below.
 
-<img src="/img/swagger_docs.png" style="width:100%;display:block;margin-left: auto;margin-right:auto;">
+![](img/swagger_docs.png){style="width:100%;display:block;margin-left: auto;margin-right:auto;"}
 
 This will showcase the API made available through FastAPI. Additionally navigating to the `/openapi.json`, for example, `1.236.66.46:6921/openapi.json` will provide a JSON respecting the OpenAPI format of the public-facing functions. An excerpt is shown below
 
@@ -42,7 +42,7 @@ In addition, a <a href="https://json-schema.org/">JSON Schema</a> is provided fo
 
 An example of what a Schema may look like is shown below
 
-<img src="/img/json_schema.png" style="width:55%;display:block;margin-left: auto;margin-right:auto;">
+![](img/json_schema.png){style="width:55%;display:block;margin-left: auto;margin-right:auto;"}
 
 This schema in its' raw format from the OpenAPI JSON is shown below
 ```json

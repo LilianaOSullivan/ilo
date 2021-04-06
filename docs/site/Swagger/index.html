@@ -488,7 +488,7 @@
                 
                 <h1 id="swagger-notes">Swagger &amp; Notes<a class="headerlink" href="#swagger-notes" title="Permanent link">&para;</a></h1>
 <p>FastAPI will generate Swagger documentation. This can be accessed with the IP Address, and accessing <code>/docs</code>, for example, <code>1.236.66.46:6921/docs</code>. An example of this can be seen below.</p>
-<p><img src="/img/swagger_docs.png" style="width:100%;display:block;margin-left: auto;margin-right:auto;"></p>
+<p><img alt="" src="../img/swagger_docs.png" style="width:100%;display:block;margin-left: auto;margin-right:auto;" /></p>
 <p>This will showcase the API made available through FastAPI. Additionally navigating to the <code>/openapi.json</code>, for example, <code>1.236.66.46:6921/openapi.json</code> will provide a JSON respecting the OpenAPI format of the public-facing functions. An excerpt is shown below</p>
 <p><div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;openapi&quot;</span><span class="p">:</span> <span class="s2">&quot;3.0.2&quot;</span><span class="p">,</span>
@@ -521,7 +521,7 @@
 <h2 id="json-schema">JSON Schema<a class="headerlink" href="#json-schema" title="Permanent link">&para;</a></h2>
 <p>In addition, a <a href="https://json-schema.org/">JSON Schema</a> is provided for each OpenAPI function. This is annotating how a JSON should be formatted to be accepted as a valid request, this can include the use of optional parameters with the request. This information is provided by the Swagger documentation and is provided as part of the OpenAPI JSON. The server will reject the request if the schema is not abided to.</p>
 <p>An example of what a Schema may look like is shown below</p>
-<p><img src="/img/json_schema.png" style="width:55%;display:block;margin-left: auto;margin-right:auto;"></p>
+<p><img alt="" src="../img/json_schema.png" style="width:55%;display:block;margin-left: auto;margin-right:auto;" /></p>
 <p>This schema in its' raw format from the OpenAPI JSON is shown below
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;User&quot;</span><span class="p">:</span>
 <span class="p">{</span>

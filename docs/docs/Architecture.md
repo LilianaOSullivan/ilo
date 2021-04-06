@@ -7,7 +7,7 @@ Ilo is powered predominantly by two of the below technologies
 
 The above technologies are combined in an encapsulated manner, much as showcased below.
 
-![](/img/system_arc.png){style="margin-left:auto;margin-right:auto;display:block;width:40%"}
+![](img/system_arc.png){style="margin-left:auto;margin-right:auto;display:block;width:40%"}
 
 ## Python :material-language-python:
 Python handles all the 'business' end of the platform. Such as the creation of users or the validation of API keys.

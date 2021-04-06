@@ -495,7 +495,7 @@
 <li><strong>WebSockets</strong>: This is a requirement for the sending of messages between Potion and the client.</li>
 <li><strong>JSON Parsing</strong>: The information exchanged within the WebSocket connection is in a JSON format, and as such is essential to the understanding of the information exchanged.</li>
 </ul>
-<p>To access public-facing methods, all information is exchanged using an appropriate HTTP method, and a <a href="/Swagger/#json-schema">JSON schema</a>. These are documented within the <a href="/Swagger/#json-schema">Swagger</a> section.</p>
+<p>To access public-facing methods, all information is exchanged using an appropriate HTTP method, and a <a href="../Swagger#json-schema">JSON schema</a>. These are documented within the <a href="/Swagger#json-schema">Swagger</a> section.</p>
 <h2 id="message-sending">Message Sending<a class="headerlink" href="#message-sending" title="Permanent link">&para;</a></h2>
 <p>To send a message, the following pre-conditions must exist</p>
 <ul>
@@ -510,7 +510,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="user-creation">User Creation<a class="headerlink" href="#user-creation" title="Permanent link">&para;</a></h3>
-<p>A user can be created by sending a <em>POST</em> request to <code>/user</code>, with a JSON attached contained the required information, a sample has been provided below. Information on password requirements can be seen <a href="/Swagger/#user-creation">here</a></p>
+<p>A user can be created by sending a <em>POST</em> request to <code>/user</code>, with a JSON attached contained the required information, a sample has been provided below. Information on password requirements can be seen <a href="/Swagger#user-creation">here</a></p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;cookielover57🍪&quot;</span><span class="p">,</span>
   <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;MySuperSecurePassword57!&quot;</span><span class="p">,</span>
@@ -528,7 +528,7 @@
 </code></pre></div>
 <h2 id="reference-client">Reference Client<a class="headerlink" href="#reference-client" title="Permanent link">&para;</a></h2>
 <p>A reference client implemented in Python's Tkinter GUI toolkit has been created to provide a sample implementation of a client. This can be found within the Python folder, under <code>py_client</code> or the project path of <code>ilo/python/py_client</code>.</p>
-<p><img alt="" src="/img/py_client.png" /></p>
+<p><img alt="" src="img/py_client.png" /></p>
 <p>This client is aimed to showcase the use of the Ilo API. It provided the following functionality</p>
 <ul>
 <li>Registering a user</li>

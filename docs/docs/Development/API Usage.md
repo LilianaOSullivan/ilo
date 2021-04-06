@@ -7,7 +7,7 @@ A client must at minimum support
 * **WebSockets**: This is a requirement for the sending of messages between Potion and the client.
 * **JSON Parsing**: The information exchanged within the WebSocket connection is in a JSON format, and as such is essential to the understanding of the information exchanged.
 
-To access public-facing methods, all information is exchanged using an appropriate HTTP method, and a [JSON schema](/Swagger/#json-schema). These are documented within the [Swagger](/Swagger/#json-schema) section.
+To access public-facing methods, all information is exchanged using an appropriate HTTP method, and a [JSON schema](/Swagger#json-schema). These are documented within the [Swagger](/Swagger#json-schema) section.
 
 ## Message Sending
 
@@ -29,7 +29,7 @@ An API Key can be obtained by sending a *POST* request to `/key`. The API will r
 
 ### User Creation
 
-A user can be created by sending a *POST* request to `/user`, with a JSON attached contained the required information, a sample has been provided below. Information on password requirements can be seen [here](/Swagger/#user-creation)
+A user can be created by sending a *POST* request to `/user`, with a JSON attached contained the required information, a sample has been provided below. Information on password requirements can be seen [here](/Swagger#user-creation)
 
 ```json
 {
@@ -56,7 +56,7 @@ To log a user in, we send a PUT request to `/user`. The JSON we send along with 
 
 A reference client implemented in Python's Tkinter GUI toolkit has been created to provide a sample implementation of a client. This can be found within the Python folder, under `py_client` or the project path of `ilo/python/py_client`.
 
-![](/img/py_client.png)
+![](img/py_client.png)
 
 This client is aimed to showcase the use of the Ilo API. It provided the following functionality
 

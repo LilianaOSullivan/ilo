@@ -1,0 +1,891 @@
+[
+    {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "threading",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "threading",
+        "description": "threading",
+        "detail": "threading",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "messagebox",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "websocket",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "websocket",
+        "description": "websocket",
+        "detail": "websocket",
+        "documentation": {}
+    },
+    {
+        "label": "PKCS1_OAEP",
+        "importPath": "Crypto.Cipher",
+        "description": "Crypto.Cipher",
+        "isExtraImport": true,
+        "detail": "Crypto.Cipher",
+        "documentation": {}
+    },
+    {
+        "label": "PKCS1_OAEP",
+        "importPath": "Crypto.Cipher",
+        "description": "Crypto.Cipher",
+        "isExtraImport": true,
+        "detail": "Crypto.Cipher",
+        "documentation": {}
+    },
+    {
+        "label": "PKCS1_OAEP",
+        "importPath": "Crypto.Cipher",
+        "description": "Crypto.Cipher",
+        "isExtraImport": true,
+        "detail": "Crypto.Cipher",
+        "documentation": {}
+    },
+    {
+        "label": "RSA",
+        "importPath": "Crypto.PublicKey",
+        "description": "Crypto.PublicKey",
+        "isExtraImport": true,
+        "detail": "Crypto.PublicKey",
+        "documentation": {}
+    },
+    {
+        "label": "RSA",
+        "importPath": "Crypto.PublicKey",
+        "description": "Crypto.PublicKey",
+        "isExtraImport": true,
+        "detail": "Crypto.PublicKey",
+        "documentation": {}
+    },
+    {
+        "label": "RSA",
+        "importPath": "Crypto.PublicKey",
+        "description": "Crypto.PublicKey",
+        "isExtraImport": true,
+        "detail": "Crypto.PublicKey",
+        "documentation": {}
+    },
+    {
+        "label": "helpers",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "helpers",
+        "description": "helpers",
+        "detail": "helpers",
+        "documentation": {}
+    },
+    {
+        "label": "gui_layouts",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "gui_layouts",
+        "description": "gui_layouts",
+        "detail": "gui_layouts",
+        "documentation": {}
+    },
+    {
+        "label": "tkmacosx",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tkmacosx",
+        "description": "tkmacosx",
+        "detail": "tkmacosx",
+        "documentation": {}
+    },
+    {
+        "label": "END",
+        "importPath": "tkinter.constants",
+        "description": "tkinter.constants",
+        "isExtraImport": true,
+        "detail": "tkinter.constants",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "os.path",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os.path",
+        "description": "os.path",
+        "detail": "os.path",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPStatus",
+        "importPath": "http",
+        "description": "http",
+        "isExtraImport": true,
+        "detail": "http",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPStatus",
+        "importPath": "http",
+        "description": "http",
+        "isExtraImport": true,
+        "detail": "http",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "Config",
+        "description": "Config",
+        "detail": "Config",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "Config",
+        "description": "Config",
+        "isExtraImport": true,
+        "detail": "Config",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "Config",
+        "description": "Config",
+        "isExtraImport": true,
+        "detail": "Config",
+        "documentation": {}
+    },
+    {
+        "label": "pymongo",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pymongo",
+        "description": "pymongo",
+        "detail": "pymongo",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi.exceptions",
+        "description": "fastapi.exceptions",
+        "isExtraImport": true,
+        "detail": "fastapi.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi.routing",
+        "description": "fastapi.routing",
+        "isExtraImport": true,
+        "detail": "fastapi.routing",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi.routing",
+        "description": "fastapi.routing",
+        "isExtraImport": true,
+        "detail": "fastapi.routing",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi.routing",
+        "description": "fastapi.routing",
+        "isExtraImport": true,
+        "detail": "fastapi.routing",
+        "documentation": {}
+    },
+    {
+        "label": "Detail",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Detail",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Collection",
+        "importPath": "pymongo.collection",
+        "description": "pymongo.collection",
+        "isExtraImport": true,
+        "detail": "pymongo.collection",
+        "documentation": {}
+    },
+    {
+        "label": "Collection",
+        "importPath": "pymongo.collection",
+        "description": "pymongo.collection",
+        "isExtraImport": true,
+        "detail": "pymongo.collection",
+        "documentation": {}
+    },
+    {
+        "label": "Collection",
+        "importPath": "pymongo.collection",
+        "description": "pymongo.collection",
+        "isExtraImport": true,
+        "detail": "pymongo.collection",
+        "documentation": {}
+    },
+    {
+        "label": "Form",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "userDB",
+        "importPath": "routers.User",
+        "description": "routers.User",
+        "isExtraImport": true,
+        "detail": "routers.User",
+        "documentation": {}
+    },
+    {
+        "label": "UserRouter",
+        "importPath": "routers.User",
+        "description": "routers.User",
+        "isExtraImport": true,
+        "detail": "routers.User",
+        "documentation": {}
+    },
+    {
+        "label": "HTMLResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "Helper",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "Helper",
+        "description": "Helper",
+        "detail": "Helper",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordHasher",
+        "importPath": "argon2",
+        "description": "argon2",
+        "isExtraImport": true,
+        "detail": "argon2",
+        "documentation": {}
+    },
+    {
+        "label": "VerificationError",
+        "importPath": "argon2.exceptions",
+        "description": "argon2.exceptions",
+        "isExtraImport": true,
+        "detail": "argon2.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "VerifyMismatchError",
+        "importPath": "argon2.exceptions",
+        "description": "argon2.exceptions",
+        "isExtraImport": true,
+        "detail": "argon2.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "TestClient",
+        "importPath": "fastapi.testclient",
+        "description": "fastapi.testclient",
+        "isExtraImport": true,
+        "detail": "fastapi.testclient",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "logging.config",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging.config",
+        "description": "logging.config",
+        "detail": "logging.config",
+        "documentation": {}
+    },
+    {
+        "label": "yaml",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "yaml",
+        "description": "yaml",
+        "detail": "yaml",
+        "documentation": {}
+    },
+    {
+        "label": "ApiKeyRouter",
+        "importPath": "routers.ApiKey",
+        "description": "routers.ApiKey",
+        "isExtraImport": true,
+        "detail": "routers.ApiKey",
+        "documentation": {}
+    },
+    {
+        "label": "potionRouter",
+        "importPath": "routers.Potion",
+        "description": "routers.Potion",
+        "isExtraImport": true,
+        "detail": "routers.Potion",
+        "documentation": {}
+    },
+    {
+        "label": "TestClient",
+        "importPath": "routers.TestClient",
+        "description": "routers.TestClient",
+        "isExtraImport": true,
+        "detail": "routers.TestClient",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "GUI",
+        "kind": 6,
+        "importPath": "py_client.gui",
+        "description": "py_client.gui",
+        "peekOfCode": "class GUI:\n    def message(self,ws, m):\n        for decrypt in [self.decrypt_me, decrypt_other]:\n            try:\n                received = base64.b64decode(m)\n                m = decrypt(received).decode(\"utf-8\")\n                break\n            except Exception:\n                pass\n        else:",
+        "detail": "py_client.gui",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "kind": 2,
+        "importPath": "py_client.gui",
+        "description": "py_client.gui",
+        "peekOfCode": "def jsonify(m: str):\n    m_encrypted = encrypt_other(m.encode(\"utf-8\"))\n    sending = base64.b64encode(m_encrypted).decode()\n    return json.dumps({\"data\": {\"message\": sending}})\nclass GUI:\n    def message(self,ws, m):\n        for decrypt in [self.decrypt_me, decrypt_other]:\n            try:\n                received = base64.b64decode(m)\n                m = decrypt(received).decode(\"utf-8\")",
+        "detail": "py_client.gui",
+        "documentation": {}
+    },
+    {
+        "label": "encrypt_other",
+        "kind": 5,
+        "importPath": "py_client.gui",
+        "description": "py_client.gui",
+        "peekOfCode": "encrypt_other = PKCS1_OAEP.new(public_key).encrypt\ndecrypt_other = PKCS1_OAEP.new(private_key).decrypt\ndef jsonify(m: str):\n    m_encrypted = encrypt_other(m.encode(\"utf-8\"))\n    sending = base64.b64encode(m_encrypted).decode()\n    return json.dumps({\"data\": {\"message\": sending}})\nclass GUI:\n    def message(self,ws, m):\n        for decrypt in [self.decrypt_me, decrypt_other]:\n            try:",
+        "detail": "py_client.gui",
+        "documentation": {}
+    },
+    {
+        "label": "decrypt_other",
+        "kind": 5,
+        "importPath": "py_client.gui",
+        "description": "py_client.gui",
+        "peekOfCode": "decrypt_other = PKCS1_OAEP.new(private_key).decrypt\ndef jsonify(m: str):\n    m_encrypted = encrypt_other(m.encode(\"utf-8\"))\n    sending = base64.b64encode(m_encrypted).decode()\n    return json.dumps({\"data\": {\"message\": sending}})\nclass GUI:\n    def message(self,ws, m):\n        for decrypt in [self.decrypt_me, decrypt_other]:\n            try:\n                received = base64.b64decode(m)",
+        "detail": "py_client.gui",
+        "documentation": {}
+    },
+    {
+        "label": "g",
+        "kind": 5,
+        "importPath": "py_client.gui",
+        "description": "py_client.gui",
+        "peekOfCode": "g = GUI()",
+        "detail": "py_client.gui",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "kind": 2,
+        "importPath": "py_client.gui_layouts",
+        "description": "py_client.gui_layouts",
+        "peekOfCode": "def login(self):\n    self.login = Toplevel(bg=\"#1e1e1e\")\n    self.login.title(\"Ilo Login\")\n    self.login.resizable(width=False, height=False)\n    self.login.configure(width=505, height=365)\n    self.title_message = Label(\n        self.login,\n        text=\"Please login to continue\",\n        justify=CENTER,\n        font=\"Helvetica 14 bold\",",
+        "detail": "py_client.gui_layouts",
+        "documentation": {}
+    },
+    {
+        "label": "chatroom",
+        "kind": 2,
+        "importPath": "py_client.gui_layouts",
+        "description": "py_client.gui_layouts",
+        "peekOfCode": "def chatroom(self, name):\n    self.name = name\n    self.Window.deiconify()\n    self.Window.title(\"Ilo\")\n    self.Window.resizable(width=False, height=False)\n    self.Window.configure(width=470, height=550, bg=\"#1e1e1e\")\n    self.labelHead = Label(\n        self.Window,\n        bg=\"#1e1e1e\",\n        fg=\"#ffffff\",",
+        "detail": "py_client.gui_layouts",
+        "documentation": {}
+    },
+    {
+        "label": "get_personal_private_key",
+        "kind": 2,
+        "importPath": "py_client.helpers",
+        "description": "py_client.helpers",
+        "peekOfCode": "def get_personal_private_key(username: str) -> Tuple[RSA.RsaKey, RSA.RsaKey]:\n    \"\"\"Retrieves a private and public from disk for a specified username.\n    Args:\n        username (str): The username to get the private key of\n    Returns:\n        Tuple[RSA.RsaKey, RSA.RsaKey]: [Private Key, Public Key]\n    \"\"\"\n    private_key = None\n    if not os.path.exists(f\"users/{username}\"):\n        os.mkdir(f\"users/{username}\")",
+        "detail": "py_client.helpers",
+        "documentation": {}
+    },
+    {
+        "label": "register",
+        "kind": 2,
+        "importPath": "py_client.helpers",
+        "description": "py_client.helpers",
+        "peekOfCode": "def register(username: str, password: str) -> bool:\n    \"\"\"\n    Registers with Ilo with the provided username and password.\n    The cryptographic keys will be created automatically\n    Args:\n        username (str): Username to register with\n        password (str): Password of the username\n    Returns:\n        bool: True or False indication the success of a registration\n    \"\"\"",
+        "detail": "py_client.helpers",
+        "documentation": {}
+    },
+    {
+        "label": "connect_new_chatroom",
+        "kind": 2,
+        "importPath": "py_client.helpers",
+        "description": "py_client.helpers",
+        "peekOfCode": "def connect_new_chatroom(self, name: str):\n    self.ws.close()\n    self.textCons.delete(1.0,END)\n    self.ws = websocket.WebSocketApp(\n        f\"ws://localhost:4000/ws/{name}\", on_message=self.message\n    )\n    self.run_thread = threading.Thread(target=self.run)\n    self.run_thread.start()",
+        "detail": "py_client.helpers",
+        "documentation": {}
+    },
+    {
+        "label": "private_key",
+        "kind": 5,
+        "importPath": "py_client.test",
+        "description": "py_client.test",
+        "peekOfCode": "private_key = None\nif os.path.isfile(\"private_key.pem\"):\n    with open(\"private_key.pem\") as f:\n        private_key = RSA.import_key(f.read())\nbreakpoint()",
+        "detail": "py_client.test",
+        "documentation": {}
+    },
+    {
+        "label": "createKey",
+        "kind": 2,
+        "importPath": "routers.ApiKey",
+        "description": "routers.ApiKey",
+        "peekOfCode": "def createKey():\n    key: str = str(uuid.uuid1())\n    _keyDB.insert_one(\n        {\n            \"key\": key,\n            \"lastUpdated\": time.time(),\n        }\n    )\n    return {\"detail\": key}\n@ApiKeyRouter.delete(",
+        "detail": "routers.ApiKey",
+        "documentation": {}
+    },
+    {
+        "label": "deleteKey",
+        "kind": 2,
+        "importPath": "routers.ApiKey",
+        "description": "routers.ApiKey",
+        "peekOfCode": "def deleteKey(key: str):\n    x = _keyDB.find_one_and_delete({\"key\": key})\n    if x is None:\n        raise HTTPException(\n            status_code=HTTPStatus.BAD_REQUEST,\n            detail=f\"The API Key {key} does not exist\",\n        )\n    return {\"detail\": f\"Successfully deleted {key}\"}\ndef fnd_int():\n    pass",
+        "detail": "routers.ApiKey",
+        "documentation": {}
+    },
+    {
+        "label": "fnd_int",
+        "kind": 2,
+        "importPath": "routers.ApiKey",
+        "description": "routers.ApiKey",
+        "peekOfCode": "def fnd_int():\n    pass",
+        "detail": "routers.ApiKey",
+        "documentation": {}
+    },
+    {
+        "label": "loggedIn",
+        "kind": 2,
+        "importPath": "routers.Potion",
+        "description": "routers.Potion",
+        "peekOfCode": "def loggedIn(request: Request, username: str = Form(\"username\")):\n    \"\"\"Returns True or False depending on a users logged in state\n    Args:\n        username (str): Username to be checked\n    Returns:\n        bool: True if logged in, False if logged out.\n    \"\"\"\n    if not request.client_host == Config.Potion_IP:  # Likely needs port appended\n        pass\n    result = userDB.find_one({\"username\": username})",
+        "detail": "routers.Potion",
+        "documentation": {}
+    },
+    {
+        "label": "potionRouter",
+        "kind": 5,
+        "importPath": "routers.Potion",
+        "description": "routers.Potion",
+        "peekOfCode": "potionRouter = APIRouter()\n@potionRouter.post(\"/potion\", include_in_schema=False)\ndef loggedIn(request: Request, username: str = Form(\"username\")):\n    \"\"\"Returns True or False depending on a users logged in state\n    Args:\n        username (str): Username to be checked\n    Returns:\n        bool: True if logged in, False if logged out.\n    \"\"\"\n    if not request.client_host == Config.Potion_IP:  # Likely needs port appended",
+        "detail": "routers.Potion",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "routers.TestClient",
+        "description": "routers.TestClient",
+        "peekOfCode": "def home():\n    with open(\"client/login.html\") as f:\n        return f.read()\n@TestClient.get(path=\"/message\")\ndef message():\n    with open(\"client/sendMessage.html\") as f:\n        return f.read()\n@TestClient.get(path=\"/cryptodemo\")\ndef demo():\n    with open(\"client/SubtleCryptoDemo.html\") as f:",
+        "detail": "routers.TestClient",
+        "documentation": {}
+    },
+    {
+        "label": "message",
+        "kind": 2,
+        "importPath": "routers.TestClient",
+        "description": "routers.TestClient",
+        "peekOfCode": "def message():\n    with open(\"client/sendMessage.html\") as f:\n        return f.read()\n@TestClient.get(path=\"/cryptodemo\")\ndef demo():\n    with open(\"client/SubtleCryptoDemo.html\") as f:\n        return f.read()\n@TestClient.get(path=\"/genkey\")\ndef genkeys():\n    with open(\"client/GenKeys.html\") as f:",
+        "detail": "routers.TestClient",
+        "documentation": {}
+    },
+    {
+        "label": "demo",
+        "kind": 2,
+        "importPath": "routers.TestClient",
+        "description": "routers.TestClient",
+        "peekOfCode": "def demo():\n    with open(\"client/SubtleCryptoDemo.html\") as f:\n        return f.read()\n@TestClient.get(path=\"/genkey\")\ndef genkeys():\n    with open(\"client/GenKeys.html\") as f:\n        return f.read()\n@TestClient.get(\n    path=\"/client/static/socket_code.js\",\n    include_in_schema=False,",
+        "detail": "routers.TestClient",
+        "documentation": {}
+    },
+    {
+        "label": "genkeys",
+        "kind": 2,
+        "importPath": "routers.TestClient",
+        "description": "routers.TestClient",
+        "peekOfCode": "def genkeys():\n    with open(\"client/GenKeys.html\") as f:\n        return f.read()\n@TestClient.get(\n    path=\"/client/static/socket_code.js\",\n    include_in_schema=False,\n)\ndef jsFile():\n    with open(\"client/static/socket_code.js\") as f:\n        return f.read()",
+        "detail": "routers.TestClient",
+        "documentation": {}
+    },
+    {
+        "label": "jsFile",
+        "kind": 2,
+        "importPath": "routers.TestClient",
+        "description": "routers.TestClient",
+        "peekOfCode": "def jsFile():\n    with open(\"client/static/socket_code.js\") as f:\n        return f.read()",
+        "detail": "routers.TestClient",
+        "documentation": {}
+    },
+    {
+        "label": "usernameExists",
+        "kind": 2,
+        "importPath": "routers.User",
+        "description": "routers.User",
+        "peekOfCode": "def usernameExists(username: str):\n    if userDB.find_one({\"username\": username}) is not None:\n        return {\"detail\": \"Username Exists\", \"Exists\": True}\n    return {\"detail\": \"Username doesn't exist\", \"Exists\": False}\n# FIXME: This needs testing. Code written, not tested\n@UserRouter.get(path=\"/user/{username}\")  # TODO: Create OpenAPI docs\ndef getPublicKey(username: str):\n    result = userDB.find_one({\"username\": username})\n    if result is None:\n        raise HTTPException(",
+        "detail": "routers.User",
+        "documentation": {}
+    },
+    {
+        "label": "getPublicKey",
+        "kind": 2,
+        "importPath": "routers.User",
+        "description": "routers.User",
+        "peekOfCode": "def getPublicKey(username: str):\n    result = userDB.find_one({\"username\": username})\n    if result is None:\n        raise HTTPException(\n            status_code=HTTPStatus.CONFLICT,\n            detail=f\"The user {username} does not exist\",\n        )\n    return {\"detail\": result[\"public_key\"]}\n# Create User\n@UserRouter.post(",
+        "detail": "routers.User",
+        "documentation": {}
+    },
+    {
+        "label": "createUser",
+        "kind": 2,
+        "importPath": "routers.User",
+        "description": "routers.User",
+        "peekOfCode": "def createUser(user: User):\n    _userLogger.info(f\"Processing Create :{user.username}\")\n    if not Helper.validate_APIKey(key=user.api_key):\n        raise HTTPException(\n            status_code=HTTPStatus.BAD_REQUEST,\n            detail=\"Invalid API Key\",\n        )\n    if userDB.find_one({\"username\": user.username}) is not None:\n        _userLogger.info(f\"Username {user.username} already exists\")\n        raise HTTPException(",
+        "detail": "routers.User",
+        "documentation": {}
+    },
+    {
+        "label": "deleteUser",
+        "kind": 2,
+        "importPath": "routers.User",
+        "description": "routers.User",
+        "peekOfCode": "def deleteUser(user: User):\n    _userLogger.info(f\"Processing Delete:{user.username}\")\n    query = userDB.find_one({\"username\": user.username})\n    if query is None:\n        _userLogger.info(\n            f\"Username {user.username} does not exists to delete. Raising Exception.\"\n        )\n        raise HTTPException(\n            status_code=HTTPStatus.CONFLICT,\n            detail=f\"The user {user.username} does not exist\",",
+        "detail": "routers.User",
+        "documentation": {}
+    },
+    {
+        "label": "get_friends",
+        "kind": 2,
+        "importPath": "routers.User",
+        "description": "routers.User",
+        "peekOfCode": "def get_friends(user: User):\n    _userLogger.info(f\"Processing friends for:{user.username}\")\n    query = userDB.find_one({\"username\": user.username})\n    if query is None:\n        _userLogger.info(\n            f\"Username {user.username} does not exists to delete. Raising Exception.\"\n        )\n        raise HTTPException(\n            status_code=HTTPStatus.CONFLICT,\n            detail=f\"The user {user.username} does not exist\",",
+        "detail": "routers.User",
+        "documentation": {}
+    },
+    {
+        "label": "loginUser",
+        "kind": 2,
+        "importPath": "routers.User",
+        "description": "routers.User",
+        "peekOfCode": "def loginUser(user: User):\n    _userLogger.info(f\"Logging in {user.username} with key {user.api_key}\")\n    if not Helper.validate_APIKey(user.api_key):\n        raise HTTPException(\n            status_code=HTTPStatus.BAD_REQUEST, detail=\"Invalid API Key\"\n        )\n    result = userDB.find_one({\"username\": user.username})\n    if result is None:\n        raise HTTPException(\n            status_code=HTTPStatus.BAD_REQUEST,",
+        "detail": "routers.User",
+        "documentation": {}
+    },
+    {
+        "label": "_hasher",
+        "kind": 5,
+        "importPath": "routers.User",
+        "description": "routers.User",
+        "peekOfCode": "_hasher = PasswordHasher()\n_userLogger: logging.Logger = logging.getLogger(\"user\")\n_userLogger.info(\n    f\"Connecting to userDB: {Config.MongoDB_address}/{Config.MongoDB_database}/{Config.MongoDB_user_collection}\"\n)\nuserDB: Collection = pymongo.MongoClient(Config.MongoDB_address)[\n    Config.MongoDB_database\n][Config.MongoDB_user_collection]\n_userLogger.info(\"Connected to userDB\")\n@UserRouter.options(path=\"/user/{username}\")  # TODO: Create OpenAPI docs",
+        "detail": "routers.User",
+        "documentation": {}
+    },
+    {
+        "label": "test_ensure_it_works",
+        "kind": 2,
+        "importPath": "tests.test_startup",
+        "description": "tests.test_startup",
+        "peekOfCode": "def test_ensure_it_works():\n    response = client.get('/')\n    assert 1 == 1",
+        "detail": "tests.test_startup",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "tests.test_startup",
+        "description": "tests.test_startup",
+        "peekOfCode": "client = TestClient(app)\ndef test_ensure_it_works():\n    response = client.get('/')\n    assert 1 == 1",
+        "detail": "tests.test_startup",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "kind": 6,
+        "importPath": "Config",
+        "description": "Config",
+        "peekOfCode": "class Config:\n    MongoDB_address:str\n    MongoDB_database:str\n    MongoDB_user_collection:str\n    MongoDB_apiKey_collection:str\n    Potion_IP:str",
+        "detail": "Config",
+        "documentation": {}
+    },
+    {
+        "label": "validate_APIKey",
+        "kind": 2,
+        "importPath": "Helper",
+        "description": "Helper",
+        "peekOfCode": "def validate_APIKey(\n    key: str,\n) -> bool:\n    \"\"\"\n    Checks if an API Key is valid. Returns False if it's empty\n    Parameters:\n            key (str): The key to be validated\n    Returns:\n            bool: True if the key is valid, False if its invalid or empty.\n    \"\"\"",
+        "detail": "Helper",
+        "documentation": {}
+    },
+    {
+        "label": "validate_password",
+        "kind": 2,
+        "importPath": "Helper",
+        "description": "Helper",
+        "peekOfCode": "def validate_password(password: str) -> bool:\n    \"\"\"\n    Validates that a password is meeting the minimum criteria, with confirmation.\n    It must at minimum\n        - Be of length 8\n        - Contain minimum 1 number\n        - Contain minimum 1 lowercase letter\n        - Contain minimum 1 uppercase letter\n        - 1 non-alphanumeric character\n    Args:",
+        "detail": "Helper",
+        "documentation": {}
+    },
+    {
+        "label": "startup",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def startup():\n    import resource\n    ## Seems to fix issues with either MongoDB or FastAPI. Too many open files error 24.\n    ## https://stackoverflow.com/questions/2569620/socket-accept-error-24-to-many-open-files\n    resource.setrlimit(resource.RLIMIT_NOFILE, (65536, 65536))\n    with open(\"logging_config.yaml\", \"r\") as y:\n        logging.config.dictConfig(yaml.safe_load(y.read()))\n    _generalLogger = logging.getLogger(\"general\")\n    _generalLogger.info(\"Starting ilo..Parsing general config\")\n    config: Dict = {}",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "tags_metadata",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "tags_metadata = [\n    {\n        \"name\": \"Users\",\n        \"description\": \"All Operations with users profiles.\",\n    },\n    {\n        \"name\": \"API Keys\",\n        \"description\": \"Manage API Keys. Enables the generation and deletion of keys.\",\n    },\n    {",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = FastAPI(\n    title=\"Ilo\",\n    description=\"A 4th year software development project to create an API that enables secure communication between multiple of its users.\",\n    version=\"In Development\",\n    openapi_tags=tags_metadata,\n)\nfrom routers.ApiKey import ApiKeyRouter\nfrom routers.Potion import potionRouter\nfrom routers.TestClient import TestClient\nfrom routers.User import UserRouter",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "models",
+        "description": "models",
+        "peekOfCode": "class User(BaseModel):\n    username: str\n    password: str\n    public_key: str\n    api_key: str\nclass Detail(BaseModel):\n    detail: str = \"\"",
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Detail",
+        "kind": 6,
+        "importPath": "models",
+        "description": "models",
+        "peekOfCode": "class Detail(BaseModel):\n    detail: str = \"\"",
+        "detail": "models",
+        "documentation": {}
+    }
+]

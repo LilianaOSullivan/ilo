@@ -19,11 +19,6 @@ defmodule Ilopotion.SocketHandler do
       {:ok, state}
     end
 
-    def websocket_handle({:ping, message}, state) do
-      {:reply, {:pong, message}, state}
-    end
-
-
     def websocket_handle({:text, json}, state) do
       payload = Jason.decode!(json)
       message = payload["data"]["message"]

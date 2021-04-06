@@ -1,0 +1,54 @@
+[
+    {
+        "label": "TestClient",
+        "importPath": "fastapi.testclient",
+        "description": "fastapi.testclient",
+        "isExtraImport": true,
+        "detail": "fastapi.testclient",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "test_ensure_it_works",
+        "kind": 2,
+        "importPath": "test_startup",
+        "description": "test_startup",
+        "peekOfCode": "def test_ensure_it_works():\n    response = client.get('/')\n    assert 1 == 1",
+        "detail": "test_startup",
+        "documentation": {}
+    },
+    {
+        "label": "app_fapi",
+        "kind": 5,
+        "importPath": "test_startup",
+        "description": "test_startup",
+        "peekOfCode": "app_fapi = app.app\nclient = TestClient(app_fapi)\ndef test_ensure_it_works():\n    response = client.get('/')\n    assert 1 == 1",
+        "detail": "test_startup",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "test_startup",
+        "description": "test_startup",
+        "peekOfCode": "client = TestClient(app_fapi)\ndef test_ensure_it_works():\n    response = client.get('/')\n    assert 1 == 1",
+        "detail": "test_startup",
+        "documentation": {}
+    }
+]

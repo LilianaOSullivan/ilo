@@ -4,7 +4,7 @@ import uuid
 from http import HTTPStatus
 from typing import Dict
 
-import Config
+from Config import Config
 import pymongo
 from fastapi.exceptions import HTTPException
 from fastapi.routing import APIRouter

@@ -2,7 +2,7 @@ import logging
 import time
 from http import HTTPStatus
 
-import Config
+from Config import Config
 import Helper
 import pymongo
 from argon2 import PasswordHasher

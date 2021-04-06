@@ -1,34 +1,59 @@
 import logging
 import logging.config
 from typing import Dict
+import os
 
 import pymongo
 import yaml
 from fastapi import FastAPI
 
-from Config import Config
 import Helper
+from Config import Config
 
 
 def startup():
 
     import resource
 
-    ## Seems to fix issues with either MongoDB or FastAPI. Too many open files error 24.
+    ## Fixes an issue with either MongoDB or FastAPI (Assuming FastAPI). Too many open files error 24.
     ## https://stackoverflow.com/questions/2569620/socket-accept-error-24-to-many-open-files
     resource.setrlimit(resource.RLIMIT_NOFILE, (65536, 65536))
 
-    with open("logging_config.yaml", "r") as y:
-        logging.config.dictConfig(yaml.safe_load(y.read()))
+    if not os.path.exists("logging_config.yaml"):
+        with open("logging_config.yaml", "w") as f:
+            f.write(Config.LOGGING_CONFIG_DEFAULT)
+            print("Created logging_config.yaml. Using default settings...")
+            logging.config.dictConfig(yaml.safe_load(Config.LOGGING_CONFIG_DEFAULT))
+    else:
+        try:
+            with open("logging_config.yaml", "r") as y:
+                logging.config.dictConfig(yaml.safe_load(y.read()))
+        except:
+            print("Error Parsing logging_config. Using default Ilo configuration")
+            logging.config.dictConfig(yaml.safe_load(Config.LOGGING_CONFIG_DEFAULT))
 
     _generalLogger = logging.getLogger("general")
     _generalLogger.info("Starting ilo..Parsing general config")
-    config: Dict = {}
-    with open("general_config.yaml", "r") as y:
-        config = yaml.safe_load(y.read())
-    for k, v in config.items():
-        setattr(Config, k.strip(), v.strip())
-    del config
+    if not os.path.exists("general_config.yaml"):
+        with open("general_config.yaml", "w") as f:
+            f.write(Config.GENERAL_CONFIG_DEFAULT)
+            print("Created general_config.yaml. Using default settings...")
+            _generalLogger.info(
+                "Created general_config.yaml. Using default settings..."
+            )
+    else:
+        config: Dict = {}
+        try:
+            with open("general_config.yaml", "r") as y:
+                config = yaml.safe_load(y.read())
+        except:
+            print("Error parsing general_config. Using default Ilo configuration")
+            config = yaml.safe_load(Config.GENERAL_CONFIG_DEFAULT)
+        for k, v in config.items():
+            k,v = k.strip(),v.strip()
+            if len(k) != 0 and len(v) != 0:
+                setattr(Config, k, v)
+        del config
     _generalLogger.info("Creating Helper")
     Helper.logger = _generalLogger
     Helper.keyDB = pymongo.MongoClient(Config.MongoDB_address)[Config.MongoDB_database][

@@ -15,6 +15,7 @@
         "padx",
         "pady",
         "pydantic",
+        "pytest",
         "relx",
         "setrlimit",
         "tkmacosx",

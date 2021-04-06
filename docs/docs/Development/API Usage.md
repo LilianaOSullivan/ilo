@@ -56,7 +56,7 @@ To log a user in, we send a PUT request to `/user`. The JSON we send along with 
 
 A reference client implemented in Python's Tkinter GUI toolkit has been created to provide a sample implementation of a client. This can be found within the Python folder, under `py_client` or the project path of `ilo/python/py_client`.
 
-<img src="/img/py_client.png" style="width:60%;display:block;margin-left: auto;margin-right:auto;">
+![](/img/py_client.png)
 
 This client is aimed to showcase the use of the Ilo API. It provided the following functionality
 

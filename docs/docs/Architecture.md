@@ -6,8 +6,8 @@ Ilo is powered predominantly by two of the below technologies
 * **Elixir** - CowBoy
 
 The above technologies are combined in an encapsulated manner, much as showcased below.
-<img src="/img/system_arc.png" style="width:40%;display:block;margin-left: auto;margin-right:auto;">
 
+![](/img/system_arc.png){style="margin-left:auto;margin-right:auto;display:block;width:40%"}
 
 ## Python :material-language-python:
 Python handles all the 'business' end of the platform. Such as the creation of users or the validation of API keys.

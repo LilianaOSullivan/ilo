@@ -1,4 +1,5 @@
 site_name: Ilo Secure Communication
+site_url: https://lilianaosullivan.github.io/ilo/
 copyright: Copyright &copy; 2020 - 2021 Liliana O'Sullivan
 theme:
     name: material
@@ -9,6 +10,7 @@ theme:
 markdown_extensions:
     - toc:
         permalink: true
+    - attr_list
     - pymdownx.highlight
     - pymdownx.superfences
     - abbr

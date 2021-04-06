@@ -84,7 +84,7 @@ This schema in its' raw format from the OpenAPI JSON is shown below
 
 Documentation in the <a href="https://github.com/Redocly/redoc">ReDoc</a> format can be accessed by navigating to `/redoc`.
 
-<img src="/img/redoc.png" style="width:100%;display:block;margin-left: auto;margin-right:auto;">
+![](img/redoc.png)
 
 ### User Creation
 

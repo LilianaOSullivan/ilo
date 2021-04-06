@@ -10,3 +10,4 @@ Python/py_client/users/private_key.pem
 *.pyc
 *.pyc
 elixir/deps
+python/.ipynb_checkpoints

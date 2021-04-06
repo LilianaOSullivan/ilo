@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<script type="application/javascript" defer src="client/static/variables.js"></script>
+	<title>
+		Ilo Login
+	</title>
+</head>
+<script>
+	function sendJSON() {
+		let name = document.querySelector('#username').value;
+		let password = document.querySelector('#password').value;
+		let request = new XMLHttpRequest();
+		let url = "user";
+		request.open("POST", url, true);
+
+		request.setRequestHeader("Content-Type", "application/json");
+
+		request.onreadystatechange = function () {
+			if (request.status === 200) {
+				window.location.replace('/')
+			}
+
+			// Converting JSON data to string
+			var data = JSON.stringify({
+				"username": name,
+				"password": password,
+				"apiKey": api_key,
+			});
+
+			// Sending data with the request
+			request.send(data);
+		}
+	}
+</script>
+
+<body>
+	<h2>Ilo Login</h2>
+	<form>
+		<input id="username" type="text">
+		<br>
+		<input id="password" type='password'>
+		<br>
+		<input type="submit" onclick="sendJSON()" value="send" id="button">
+	</form>
+</body>
+
+</html>

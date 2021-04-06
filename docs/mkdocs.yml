@@ -1,5 +1,7 @@
 site_url: https://lilianaosullivan.github.io/ilo/
 site_name: Ilo Secure Communication
+repo_name: lilianaosullivan/ilo
+repo_url: https://github.com/LilianaOSullivan/ilo
 copyright: Copyright &copy; 2020 - 2021 Liliana O'Sullivan
 theme:
     name: material

@@ -24,11 +24,11 @@ _keyDB: Collection = pymongo.MongoClient(Config.MongoDB_address)[
     path="/key/", status_code=HTTPStatus.CREATED, summary="Create a API Key"
 )
 def createKey():
-    key: str = str(uuid.uuid1())
+    key: str = str(uuid.uuid4())
     _keyDB.insert_one(
         {
             "key": key,
-            "lastUpdated": time.time(),
+            "creation_epoch": time.time(),
         }
     )
     return {"detail": key}

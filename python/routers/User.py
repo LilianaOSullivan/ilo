@@ -82,7 +82,6 @@ def createUser(user: User):
         )
     user.password = _hasher.hash(user.password)
     user_dict: dict = vars(user)
-    user_dict.update(dict(friends=[]))
     userDB.insert_one(user_dict)
     return {"detail": f"Successfully created {user.username}"}
 

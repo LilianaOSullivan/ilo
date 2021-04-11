@@ -1,13 +1,16 @@
 import logging
 import logging.config
-from typing import Dict
 import os
+import sys
+from typing import Dict
 
-import pymongo
 import yaml
+from cassandra.cqlengine import connection
+from cassandra.cqlengine.management import sync_table
 from fastapi import FastAPI
 
 import Helper
+from CassandraModels import *
 from Config import Config
 
 
@@ -33,7 +36,7 @@ def startup():
             logging.config.dictConfig(yaml.safe_load(Config.LOGGING_CONFIG_DEFAULT))
 
     _generalLogger = logging.getLogger("general")
-    _generalLogger.info("Starting ilo..Parsing general config")
+    _generalLogger.info("Starting ilo...Parsing general config")
     if not os.path.exists("general_config.yaml"):
         with open("general_config.yaml", "w") as f:
             f.write(Config.GENERAL_CONFIG_DEFAULT)
@@ -56,9 +59,15 @@ def startup():
         del config
     _generalLogger.info("Creating Helper")
     Helper.logger = _generalLogger
-    Helper.keyDB = pymongo.MongoClient(Config.MongoDB_address)[Config.MongoDB_database][
-        Config.MongoDB_apiKey_collection
-    ]
+    _generalLogger.info("Connecting to Cassandra")
+    try:
+        connection.setup([Config.Cassandra_address], Config.Cassandra_keyspace, protocol_version=3)
+        sync_table(users,[Config.Cassandra_keyspace])
+        sync_table(api_keys,[Config.Cassandra_keyspace])
+    except Exception as e:
+        _generalLogger.critical('Failed to connect to Cassandra with the following exception')
+        _generalLogger.critical(e.with_traceback)
+        sys.exit(1)
     _generalLogger.info("Starting FastAPI")
 
 

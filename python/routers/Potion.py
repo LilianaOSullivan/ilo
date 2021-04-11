@@ -1,7 +1,7 @@
-from fastapi.routing import APIRouter
-from fastapi import Form, Request, HTTPException
+from CassandraModels import users
 from Config import Config
-from routers.User import userDB
+from fastapi import Form, HTTPException, Request
+from fastapi.routing import APIRouter
 
 potionRouter = APIRouter()
 
@@ -18,6 +18,6 @@ def loggedIn(request: Request, username: str = Form("username")):
     """
     if not request.client_host == Config.Potion_IP:  # Likely needs port appended
         pass
-    result = userDB.find_one({"username": username})
+    # result = users.find_one({"username": username})
     return True
     # return True if result is not None else False

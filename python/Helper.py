@@ -1,10 +1,9 @@
 import logging
 import re
 
-from pymongo.collection import Collection
+from CassandraModels import api_keys
 
 logger: logging.Logger = None
-keyDB: Collection = None
 
 
 def validate_APIKey(
@@ -21,9 +20,8 @@ def validate_APIKey(
     """
     if not (key := key.strip()):
         return False
-
-    key = keyDB.find_one({"key": key})
-    return False if key is None else True
+    query = api_keys.objects(key_id=key)
+    return False if query.count() == 0 else True
 
 
 def validate_password(password: str) -> bool:

@@ -1,37 +1,23 @@
 import logging
 import time
-import uuid
 from http import HTTPStatus
-from typing import Dict
 
-from Config import Config
-import pymongo
+
 from fastapi.exceptions import HTTPException
 from fastapi.routing import APIRouter
 from models import Detail
-from pymongo.collection import Collection
-
+from CassandraModels import *
 
 ApiKeyRouter: APIRouter = APIRouter(tags=["API Keys"])
 _apiLogger: logging.Logger = logging.getLogger("api")
-
-_keyDB: Collection = pymongo.MongoClient(Config.MongoDB_address)[
-    Config.MongoDB_database
-][Config.MongoDB_apiKey_collection]
 
 # Create API Key
 @ApiKeyRouter.post(
     path="/key/", status_code=HTTPStatus.CREATED, summary="Create a API Key"
 )
 def createKey():
-    key: str = str(uuid.uuid4())
-    _keyDB.insert_one(
-        {
-            "key": key,
-            "creation_epoch": time.time(),
-        }
-    )
-    return {"detail": key}
+    key = api_keys.create(creation_epoch = time.time())
+    return {"detail": key.key_id}
 
 
 @ApiKeyRouter.delete(
@@ -51,14 +37,6 @@ def createKey():
     },
 )
 def deleteKey(key: str):
-    x = _keyDB.find_one_and_delete({"key": key})
-    if x is None:
-        raise HTTPException(
-            status_code=HTTPStatus.BAD_REQUEST,
-            detail=f"The API Key {key} does not exist",
-        )
+    breakpoint()
+    api_keys.delete(api_keys.get(key_id=key))
     return {"detail": f"Successfully deleted {key}"}
-
-
-def fnd_int():
-    pass

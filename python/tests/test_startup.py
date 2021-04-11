@@ -1,7 +1,10 @@
-import pytest
 from unittest.mock import patch
-from tests import mocks
+
+import pytest
 from Config import Config
+
+from tests import mocks
+
 
 @pytest.mark.startup
 def test_config_no_empty(client_w_mock):

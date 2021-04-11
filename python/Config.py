@@ -2,13 +2,11 @@ from typing import Final
 
 
 class Config:
-    MongoDB_address:str = "mongodb://127.0.0.1:27017/"
-    MongoDB_database:str = "ilo"
-    MongoDB_user_collection:str = "users"
-    MongoDB_apiKey_collection:str = "api_keys"
-    Potion_IP:str = "0.0.0.0:4000"
+    Cassandra_address: str = "127.0.0.1"
+    Cassandra_keyspace: str = "ilo"
+    Potion_IP: str = "0.0.0.0:4000"
 
-    LOGGING_CONFIG_DEFAULT:Final = """version: 1
+    LOGGING_CONFIG_DEFAULT: Final = """version: 1
 formatters:
     simple:
         format: "[%(name)s | %(levelname)s]:%(lineno)s - %(message)s"
@@ -43,9 +41,7 @@ loggers:
         level: DEBUG
         handlers: [api]"""
 
-    GENERAL_CONFIG_DEFAULT:Final = """MongoDB_address: "mongodb://127.0.0.1:27017/"
-MongoDB_database: ilo
-MongoDB_user_collection: users
-MongoDB_apiKey_collection: api_keys
+    GENERAL_CONFIG_DEFAULT: Final = """Cassandra_address: "127.0.0.1"
+Cassandra_keyspace: "ilo"
 Potion_IP: "0.0.0.0:4000"
 """

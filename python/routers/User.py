@@ -2,31 +2,23 @@ import logging
 import time
 from http import HTTPStatus
 
-from Config import Config
 import Helper
-import pymongo
 from argon2 import PasswordHasher
 from argon2.exceptions import VerificationError, VerifyMismatchError
+from CassandraModels import api_keys, users
 from fastapi import APIRouter, HTTPException
 from models import Detail, User
-from pymongo.collection import Collection
 
 UserRouter: APIRouter = APIRouter(tags=["Users"])
 
 _hasher = PasswordHasher()
 _userLogger: logging.Logger = logging.getLogger("user")
-_userLogger.info(
-    f"Connecting to userDB: {Config.MongoDB_address}/{Config.MongoDB_database}/{Config.MongoDB_user_collection}"
-)
-userDB: Collection = pymongo.MongoClient(Config.MongoDB_address)[
-    Config.MongoDB_database
-][Config.MongoDB_user_collection]
-_userLogger.info("Connected to userDB")
 
 
 @UserRouter.options(path="/user/{username}")  # TODO: Create OpenAPI docs
 def usernameExists(username: str):
-    if userDB.find_one({"username": username}) is not None:
+    query = users.objects(username=username)
+    if query.count() > 0:
         return {"detail": "Username Exists", "Exists": True}
     return {"detail": "Username doesn't exist", "Exists": False}
 
@@ -34,13 +26,13 @@ def usernameExists(username: str):
 # FIXME: This needs testing. Code written, not tested
 @UserRouter.get(path="/user/{username}")  # TODO: Create OpenAPI docs
 def getPublicKey(username: str):
-    result = userDB.find_one({"username": username})
-    if result is None:
+    query = users.objects(username=username)
+    if query.count() == 0:
         raise HTTPException(
             status_code=HTTPStatus.CONFLICT,
             detail=f"The user {username} does not exist",
         )
-    return {"detail": result["public_key"]}
+    return {"detail": query[0].public_key}
 
 
 # Create User
@@ -69,7 +61,7 @@ def createUser(user: User):
             status_code=HTTPStatus.BAD_REQUEST,
             detail="Invalid API Key",
         )
-    if userDB.find_one({"username": user.username}) is not None:
+    if usernameExists(user.username)["Exists"]:
         _userLogger.info(f"Username {user.username} already exists")
         raise HTTPException(
             status_code=HTTPStatus.CONFLICT,
@@ -81,8 +73,12 @@ def createUser(user: User):
             detail="This password does not meet the minimum requirements.",
         )
     user.password = _hasher.hash(user.password)
-    user_dict: dict = vars(user)
-    userDB.insert_one(user_dict)
+    users.create(
+        username=user.username,
+        password=user.password,
+        public_key=user.public_key,
+        api_key=user.api_key,
+    )
     return {"detail": f"Successfully created {user.username}"}
 
 
@@ -105,50 +101,32 @@ def createUser(user: User):
 )
 def deleteUser(user: User):
     _userLogger.info(f"Processing Delete:{user.username}")
-    query = userDB.find_one({"username": user.username})
-    if query is None:
+    query = users.objects(username=user.username)
+    if query.count() == 0:
         _userLogger.info(
             f"Username {user.username} does not exists to delete. Raising Exception."
         )
         raise HTTPException(
             status_code=HTTPStatus.CONFLICT,
-            detail=f"The user {user.username} does not exist",
+            detail=f"The user {user.username} does not exist or is not logged in",
         )
-    _userLogger.info(f"User Exists. Deleting {user.username}")
-    userDB.delete_one(query)
+    _userLogger.info(f"User Exists. Checking if logged in of {user.username}")
+    db_user = query[0]
+    if not db_user.logged_in:
+        raise HTTPException(
+            status_code=HTTPStatus.CONFLICT,
+            detail=f"The user {user.username} does not exist or is not logged in.",
+        )
+    try:
+        _hasher.verify(db_user.password, user.password)
+    except (VerificationError, VerifyMismatchError):
+        raise HTTPException(
+            status_code=HTTPStatus.BAD_REQUEST,
+            detail="Invalid Password or username",
+        )
+    users.delete(db_user)
     _userLogger.info(f"Successfully deleted {user.username}")
     return {"detail": f"Successfully deleted {user.username}"}
-
-
-# Get User Friends
-@UserRouter.head(  # TODO: Fill in information
-    path="/user",
-    status_code=HTTPStatus.OK,
-    summary="Deletes a user.",
-    responses={
-        HTTPStatus.CONFLICT.value: {
-            "description": "Gets a users friends.",
-            "model": Detail,
-            "content": {
-                "application/json": {
-                    "example": {"detail": "The user Alex13 does not exist"}
-                },
-            },
-        },
-    },
-)
-def get_friends(user: User):
-    _userLogger.info(f"Processing friends for:{user.username}")
-    query = userDB.find_one({"username": user.username})
-    if query is None:
-        _userLogger.info(
-            f"Username {user.username} does not exists to delete. Raising Exception."
-        )
-        raise HTTPException(
-            status_code=HTTPStatus.CONFLICT,
-            detail=f"The user {user.username} does not exist",
-        )
-    return {"detail": str(query["friends"])}
 
 
 # Login User
@@ -174,24 +152,21 @@ def loginUser(user: User):
         raise HTTPException(
             status_code=HTTPStatus.BAD_REQUEST, detail="Invalid API Key"
         )
-    result = userDB.find_one({"username": user.username})
+    query = users.objects(username=user.username)
 
-    if result is None:
+    if query.count() == 0:
         raise HTTPException(
             status_code=HTTPStatus.BAD_REQUEST,
             detail="Invalid Password or username",
         )
-
+    db_user = query[0]
     try:
-        _hasher.verify(result["password"], user.password)
+        _hasher.verify(db_user.password, user.password)
     except (VerificationError, VerifyMismatchError):
         raise HTTPException(
             status_code=HTTPStatus.BAD_REQUEST,
             detail="Invalid Password or username",
         )
-    # TODO: Below is unused, and maybe should be in API key users=[]
-    result["last_login"] = time.time()
-    # TODO: Below unused, and not timing out the user
-    result["loggin_in"] = True
-
+    db_user.logged_in = True
+    db_user.save()
     return {"detail": "Successful Login"}

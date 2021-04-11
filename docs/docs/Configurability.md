@@ -27,14 +27,13 @@ formatters:
 
 ## General
 
-The general configuration controls variables upon deployment that would want to be changed. For example MongoDB's address. This file looks as follows
+The general configuration controls variables upon deployment that are desirable to be changed without code changes. For example Cassandra's address. This file looks as follows
 
 ```yaml
-MongoDB_address: "mongodb://68.241.54.139:66043/"
-MongoDB_database: ilo
-MongoDB_user_collection: users
-MongoDB_apiKey_collection: api_keys
-Potion_IP: "87.23.73.160:1642"
+Cassandra_address: "127.0.0.1"
+Cassandra_keyspace: "ilo"
+Potion_IP: "0.0.0.0:4000"
 ```
 
-**Note** When setting the MongoDB_address, it is essential to provide the `mongodb://` prefix
+!!! note
+    The Cassandra keyspace must be created. The tables will be created automatically.

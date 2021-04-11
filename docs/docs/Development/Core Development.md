@@ -20,13 +20,9 @@ openssl req -x509 -out localhost.crt -keyout localhost.key \
    printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
 ```
 
-The FastAPI server will additionally need a MongoDB backend to function. Specifically, it requires the creation of the following
+The FastAPI server will additionally need a Cassandra backend to function. Specifically, it requires the creation of a keyspace as specified in the `general_config.yaml/Cassandra_keyspace`
 
-* Database
-* User collection
-* Api key collection
-
-The names of the database and collections can be set within the `general_config.yaml` file within the python folder. Along with providing it with the IP Address of the database.
+The Cassandra address and keyspace can be specified in the `general_config.yaml` file within the python folder. All tables will be created automatically by FastAPI.
 
 A bash script is created to start the FastAPI server with the localhost SSL certificate. It will start the server on port 7999.
 <div id="termynal" data-termynal>

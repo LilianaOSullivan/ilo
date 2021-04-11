@@ -16,6 +16,8 @@ markdown_extensions:
     - pymdownx.highlight
     - pymdownx.superfences
     - abbr
+    - admonition
+    - pymdownx.details
     - pymdownx.emoji:
         emoji_index: !!python/name:materialx.emoji.twemoji
         emoji_generator: !!python/name:materialx.emoji.to_svg

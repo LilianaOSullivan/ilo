@@ -465,13 +465,8 @@ Once downloaded and installed, the required Python libraries can be installed fr
   -subj <span class="s1">&#39;/CN=localhost&#39;</span> -extensions EXT -config &lt;<span class="o">(</span> <span class="se">\</span>
    <span class="nb">printf</span> <span class="s2">&quot;[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth&quot;</span><span class="o">)</span>
 </code></pre></div>
-<p>The FastAPI server will additionally need a MongoDB backend to function. Specifically, it requires the creation of the following</p>
-<ul>
-<li>Database</li>
-<li>User collection</li>
-<li>Api key collection</li>
-</ul>
-<p>The names of the database and collections can be set within the <code>general_config.yaml</code> file within the python folder. Along with providing it with the IP Address of the database.</p>
+<p>The FastAPI server will additionally need a Cassandra backend to function. Specifically, it requires the creation of a keyspace as specified in the <code>general_config.yaml/Cassandra_keyspace</code></p>
+<p>The Cassandra address and keyspace can be specified in the <code>general_config.yaml</code> file within the python folder. All tables will be created automatically by FastAPI.</p>
 <p>A bash script is created to start the FastAPI server with the localhost SSL certificate. It will start the server on port 7999.</p>
 <div id="termynal" data-termynal>
     <span data-ty="input" data-ty-prompt="ilo/python $">bash run.sh</span>

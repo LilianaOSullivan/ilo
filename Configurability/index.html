@@ -485,14 +485,15 @@ For example, the filename of a log can be changed here, or the logging format ca
             <span class="nt">handlers</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">console</span><span class="p p-Indicator">]</span>
 </code></pre></div>
 <h2 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h2>
-<p>The general configuration controls variables upon deployment that would want to be changed. For example MongoDB's address. This file looks as follows</p>
-<div class="highlight"><pre><span></span><code><span class="nt">MongoDB_address</span><span class="p">:</span> <span class="s">&quot;mongodb://68.241.54.139:66043/&quot;</span>
-<span class="nt">MongoDB_database</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ilo</span>
-<span class="nt">MongoDB_user_collection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">users</span>
-<span class="nt">MongoDB_apiKey_collection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">api_keys</span>
-<span class="nt">Potion_IP</span><span class="p">:</span> <span class="s">&quot;87.23.73.160:1642&quot;</span>
+<p>The general configuration controls variables upon deployment that are desirable to be changed without code changes. For example Cassandra's address. This file looks as follows</p>
+<div class="highlight"><pre><span></span><code><span class="nt">Cassandra_address</span><span class="p">:</span> <span class="s">&quot;127.0.0.1&quot;</span>
+<span class="nt">Cassandra_keyspace</span><span class="p">:</span> <span class="s">&quot;ilo&quot;</span>
+<span class="nt">Potion_IP</span><span class="p">:</span> <span class="s">&quot;0.0.0.0:4000&quot;</span>
 </code></pre></div>
-<p><strong>Note</strong> When setting the MongoDB_address, it is essential to provide the <code>mongodb://</code> prefix</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Cassandra keyspace must be created. The tables will be created automatically.</p>
+</div>
                 
               
               

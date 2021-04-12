@@ -37,6 +37,5 @@ def createKey():
     },
 )
 def deleteKey(key: str):
-    breakpoint()
     api_keys.delete(api_keys.get(key_id=key))
     return {"detail": f"Successfully deleted {key}"}

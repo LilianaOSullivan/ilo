@@ -36,4 +36,8 @@ Potion_IP: "0.0.0.0:4000"
 ```
 
 !!! note
-    The Cassandra keyspace must be created. The tables will be created automatically.
+    The Cassandra keyspace must be created, Ilo will not make it. A keyspace can be created with the following command within the CQL shell
+    ```SQL
+    CREATE keyspace ilo WITH replication={'class':'SimpleStrategy','replication_factor':3};
+    ```
+    The tables used by Ilo will be created automatically.

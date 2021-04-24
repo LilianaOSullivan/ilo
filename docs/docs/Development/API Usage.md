@@ -1,8 +1,8 @@
 # API Usage
 
-This section documents the usage of Ilo as a backend; It is highly recommended to have glanced at the [architecture](/ilo/Architecture) section, this section assumes some technical insights of Ilo.
+This section documents the usage of Ilo as a backend; It is highly recommended to have glanced at the [architecture](/ilo/Architecture) section; this section assumes some technical insights of Ilo.
 
-A client must at minimum support
+A client must, at minimum, support
 
 * **WebSockets**: This is a requirement for the sending of messages between Potion and the client.
 * **JSON Parsing**: The information exchanged within the WebSocket connection is in a JSON format, and as such is essential to the understanding of the information exchanged.
@@ -11,7 +11,7 @@ To access public-facing methods, all information is exchanged using an appropria
 
 ## Message Sending
 
-To send a message, the following pre-conditions must exist
+To send a message, the following pre-conditions must exist.
 
 * An API Key must be obtained [1](/Development/API Usage/#obtaining-an-api-key)
 * A user must be created [2](/Development/API Usage/#user-creation)
@@ -19,7 +19,7 @@ To send a message, the following pre-conditions must exist
 
 ### Obtaining an API Key
 
-An API Key can be obtained by sending a *POST* request to `/key`. The API will reply with a JSON as follows
+An API Key can be obtained by sending a *POST* request to `/key`. The API will reply with a JSON as follows.
 
 ```json
 {
@@ -29,7 +29,7 @@ An API Key can be obtained by sending a *POST* request to `/key`. The API will r
 
 ### User Creation
 
-A user can be created by sending a *POST* request to `/user`, with a JSON attached contained the required information, a sample has been provided below. Information on password requirements can be seen [here](/ilo/Swagger#user-creation)
+A user can be created by sending a *POST* request to `/user`, with a JSON attached contained the required information. A sample has been provided below. Information on password requirements can be seen [here](/ilo/Swagger#user-creation)
 
 ```json
 {
@@ -42,7 +42,7 @@ A user can be created by sending a *POST* request to `/user`, with a JSON attach
 
 ### Log a user in
 
-To log a user in, we send a PUT request to `/user`. The JSON we send along with this request will look as follows
+To log a user in, we send a PUT request to `/user`. The JSON we send along with this request will look as follows.
 
 ```json
 {
@@ -58,7 +58,7 @@ A reference client implemented in Python's Tkinter GUI toolkit has been created 
 
 ![](/img/py_client.png)
 
-This client is aimed to showcase the use of the Ilo API. It provided the following functionality
+This client is aimed to showcase the use of the Ilo API. It provided the following functionality.
 
 * Registering a user
 * Connecting to a Potion room

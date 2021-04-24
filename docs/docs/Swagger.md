@@ -1,10 +1,10 @@
 # Swagger & Notes
 
-FastAPI will generate Swagger documentation. This can be accessed with the IP Address, and accessing `/docs`, for example, `1.236.66.46:6921/docs`. An example of this can be seen below.
+FastAPI will generate Swagger documentation. This can be accessed with the IP Address and accessing `/docs`, for example, `1.236.66.46:6921/docs`. An example of this can be seen below.
 
 ![](img/swagger_docs.png){style="width:100%;display:block;margin-left: auto;margin-right:auto;"}
 
-This will showcase the API made available through FastAPI. Additionally navigating to the `/openapi.json`, for example, `1.236.66.46:6921/openapi.json` will provide a JSON respecting the OpenAPI format of the public-facing functions. An excerpt is shown below
+This will showcase the API made available through FastAPI. Additionally, navigating to the `/openapi.json`, for example, `1.236.66.46:6921/openapi.json` will provide a JSON respecting the OpenAPI format of the public-facing functions. An excerpt is shown below
 
 ```json
 {
@@ -38,9 +38,9 @@ This will showcase the API made available through FastAPI. Additionally navigati
 
 ## JSON Schema
 
-In addition, a <a href="https://json-schema.org/">JSON Schema</a> is provided for each OpenAPI function. This is annotating how a JSON should be formatted to be accepted as a valid request, this can include the use of optional parameters with the request. This information is provided by the Swagger documentation and is provided as part of the OpenAPI JSON. The server will reject the request if the schema is not abided to.
+In addition, a <a href="https://json-schema.org/">JSON Schema</a> is provided for each OpenAPI function. This annotates how a JSON should be formatted to be accepted as a valid request; it can include optional parameters with the request. This information is provided by the Swagger documentation and is provided as part of the OpenAPI JSON. The server will reject the request if the schema is not abided to.
 
-An example of what a Schema may look like is shown below
+An example of what a Schema may look like is shown below.
 
 ![](img/json_schema.png){style="width:55%;display:block;margin-left: auto;margin-right:auto;"}
 
@@ -98,4 +98,4 @@ A user must have a password. Ilo's minimum password requirements are
 
 ### Unicode support
 
-The platform has support for ᵤₙᵢcₒdₑ characters in sending messages and usernames. This allows none-latin characters to be used, or support for sending emotes such as 💞 😃 🚀 🍪 🐱
+The platform has support for ᵤₙᵢcₒdₑ characters in sending messages and usernames. This allows none-latin characters to be used or support for sending emotes such as 💞 😃 🚀 🍪 🐱

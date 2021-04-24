@@ -1,10 +1,10 @@
 # Features
 
-Ilo provides the following features
+Ilo provides the following features.
 
 ## Security First
 
-Ilo was designed as a security-first platform, using modern algorithms (Such as Argon2id for hashing) and putting user privacy first. The platform was created as an inspiration for an end-to-end encrypted platform as users increasingly rely on platforms to be able to communicate.
+Ilo was designed as a security-first platform, using modern algorithms (Such as Argon2id for hashing) and putting user privacy first. The platform was created as an inspiration for an end-to-end encrypted platform as users increasingly rely on platforms to communicate.
 
 ## Standards-based
 

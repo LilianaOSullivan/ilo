@@ -216,7 +216,7 @@
 </ul>
 <h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">¶</a></h2>
 <p>The logging configuration file contains customisation on how FastAPI will log. This file is created to be in a <a href="https://docs.python.org/3/library/logging.config.html">Python Logging Configuration</a> format.
-For example, the filename of a log can be changed here, or the logging format can be customised here. A sample of a file can be seen below</p>
+For example, the filename of a log can be changed here, or the logging format can be customised here. A sample of a file can be seen below.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">formatters</span><span class="p">:</span>
     <span class="nt">simple</span><span class="p">:</span>
         <span class="nt">format</span><span class="p">:</span> <span class="s">"[%(name)s</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">%(levelname)s]:%(lineno)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(message)s"</span>
@@ -231,14 +231,14 @@ For example, the filename of a log can be changed here, or the logging format ca
             <span class="nt">handlers</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">console</span><span class="p p-Indicator">]</span>
 </code></pre></div>
 <h2 id="general">General<a class="headerlink" href="#general" title="Permanent link">¶</a></h2>
-<p>The general configuration controls variables upon deployment that are desirable to be changed without code changes. For example Cassandra's address. This file looks as follows</p>
+<p>The general configuration controls variables upon deployment that are desirable to be changed without code changes. For example, Cassandra's address. This file looks as follows.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">Cassandra_address</span><span class="p">:</span> <span class="s">"127.0.0.1"</span>
 <span class="nt">Cassandra_keyspace</span><span class="p">:</span> <span class="s">"ilo"</span>
 <span class="nt">Potion_IP</span><span class="p">:</span> <span class="s">"0.0.0.0:4000"</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The Cassandra keyspace must be created, Ilo will not make it. A keyspace can be created with the following command within the CQL shell
+<p>The Cassandra keyspace must be created; Ilo will not make it. A keyspace can be created with the following command within the CQL shell
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="n">keyspace</span> <span class="n">ilo</span> <span class="k">WITH</span> <span class="n">replication</span><span class="o">=</span><span class="err">{</span><span class="s1">'class'</span><span class="p">:</span><span class="s1">'SimpleStrategy'</span><span class="p">,</span><span class="s1">'replication_factor'</span><span class="p">:</span><span class="mi">3</span><span class="err">}</span><span class="p">;</span>
 </code></pre></div>
 The tables used by Ilo will be created automatically.</p>

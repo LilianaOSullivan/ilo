@@ -24,6 +24,7 @@
 
 			const private_key = document.getElementById("private_key");
 			var key = window.crypto.subtle.exportKey("raw",keyPair.privateKey);
+			debugger;
 			private_key.innerHTML = key;
 		});
 

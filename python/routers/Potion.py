@@ -2,12 +2,13 @@ from CassandraModels import users
 from Config import Config
 from fastapi import Form, HTTPException, Request
 from fastapi.routing import APIRouter
+from http import HTTPStatus
 
 potionRouter = APIRouter()
 
 
 @potionRouter.post("/potion", include_in_schema=False)
-def loggedIn(request: Request, username: str = Form("username")):
+def loggedIn(request: Request, address: str = Form("address")):
     """Returns True or False depending on a users logged in state
 
     Args:
@@ -16,8 +17,7 @@ def loggedIn(request: Request, username: str = Form("username")):
     Returns:
         bool: True if logged in, False if logged out.
     """
-    if not request.client_host == Config.Potion_IP:  # Likely needs port appended
-        pass
-    # result = users.find_one({"username": username})
-    return True
-    # return True if result is not None else False
+    if not request.client.host == Config.Potion_IP:
+        raise HTTPException(status_code=HTTPStatus.UNAUTHORIZED)
+    query = users.objects(logged_in=request.client.host)
+    return True if query.count() > 0 else False

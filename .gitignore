@@ -10,6 +10,10 @@ Python/py_client/users/private_key.pem
 *.pyc
 *.pyc
 elixir/deps
+elixir/_build
 python/.ipynb_checkpoints
 python/Untitled.ipynb
 docs/site
+showcase_website/documents
+showcase_website/images/PaulBarry.jpg
+showcase_website/images/Lily.jpg

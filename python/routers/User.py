@@ -1,12 +1,11 @@
 import logging
-import time
 from http import HTTPStatus
 
 import Helper
 from argon2 import PasswordHasher
 from argon2.exceptions import VerificationError, VerifyMismatchError
-from CassandraModels import api_keys, users
-from fastapi import APIRouter, HTTPException
+from CassandraModels import users
+from fastapi import APIRouter, HTTPException, Request
 from models import Detail, User
 
 UserRouter: APIRouter = APIRouter(tags=["Users"])
@@ -23,7 +22,6 @@ def usernameExists(username: str):
     return {"detail": "Username doesn't exist", "Exists": False}
 
 
-# FIXME: This needs testing. Code written, not tested
 @UserRouter.get(path="/user/{username}")  # TODO: Create OpenAPI docs
 def getPublicKey(username: str):
     query = users.objects(username=username)
@@ -134,7 +132,7 @@ def deleteUser(user: User):
     path="/user",
     status_code=HTTPStatus.OK,
     summary="Login a user.",
-    responses={  # BUG: This needs to be completed. Copied from another
+    responses={  # TODO: This needs to be completed. Copied from another
         HTTPStatus.CONFLICT.value: {
             "description": "Occurs if a username does not exists.",
             "model": Detail,
@@ -146,7 +144,7 @@ def deleteUser(user: User):
         },
     },
 )
-def loginUser(user: User):
+def loginUser(request:Request,user: User):
     _userLogger.info(f"Logging in {user.username} with key {user.api_key}")
     if not Helper.validate_APIKey(user.api_key):
         raise HTTPException(
@@ -167,6 +165,6 @@ def loginUser(user: User):
             status_code=HTTPStatus.BAD_REQUEST,
             detail="Invalid Password or username",
         )
-    db_user.logged_in = True
+    db_user.logged_in = request.client.host
     db_user.save()
     return {"detail": "Successful Login"}

@@ -3,18 +3,22 @@ defmodule Ilopotion.SocketHandler do
 
     def init(request, _state) do
       state = %{registry_key: request.path}
-
+			r = HTTPoison.post!('http://0.0.0.0:8000/potion', {:multipart, [
+          {"address", elem(request.peer,0) |> Tuple.to_list |> Enum.join(".")}
+			]})
+			try do
+				if r.body == "false" do
+					Process.exit(self(),:kill)
+				end
+      catch
+					:throw,_ -> raise "Potion Failed to reply"
+			end
       {:cowboy_websocket, request, state}
     end
 
     def websocket_init(state) do
-      # r = HTTPoison.post!('http://0.0.0.0:8000/potion', {:multipart, [
-      #   {"username", "testuser56"}
-      # ]})
-      # if r.body == "true" do
-        Registry.Ilopotion
-        |> Registry.register(state.registry_key, {})
-      # end
+      Registry.Ilopotion
+      |> Registry.register(state.registry_key, {})
 
       {:ok, state}
     end

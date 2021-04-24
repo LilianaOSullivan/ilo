@@ -8,5 +8,5 @@ Ilo was created as a 4<sup>th</sup> year Software Development project at the Ins
 Key Features:
 
 * **Security-First**: Designed with a security first approach, rather than a second afterthought
-* **Standards-based**: Based on (With full compatibility with) open standards for API's, such as OpenAPI,Swagger and JSON Schema
+* **Standards-based**: Based on (With full compatibility with) open standards for API's, such as OpenAPI/Swagger and JSON Schema
 * **Modern Technologies**: Highly performant with Elixir and WebSocket scalability

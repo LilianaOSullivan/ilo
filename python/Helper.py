@@ -42,13 +42,12 @@ def validate_password(password: str) -> bool:
     """
     if len(password) < 8:
         return False
-    if re.search("[0-9]+", password) == None: # Number
+    if re.search("[0-9]+", password) == None:  # Number
         return False
-    if re.search("[a-z]+", password) == None: # Lowercase
+    if re.search("[a-z]+", password) == None:  # Lowercase
         return False
-    if re.search("[A-Z]+", password) == None: # Uppercase
+    if re.search("[A-Z]+", password) == None:  # Uppercase
         return False
-    if re.search("[^\w\d\s]+", password) == None: # Special character
+    if re.search("[^\w\d\s]+", password) == None:  # Special character
         return False
-
     return True

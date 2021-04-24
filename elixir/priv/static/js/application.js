@@ -1,5 +1,5 @@
 (() => {
-    class myWebsocketHandler {
+    class socket_handler {
         setupSocket() {
             this.socket = new WebSocket("ws://localhost:4000/ws/chat")
 
@@ -29,7 +29,7 @@
         }
     }
 
-    const ws = new myWebsocketHandler()
+    const ws = new socket_handler()
     ws.setupSocket()
 
     document.getElementById("button")

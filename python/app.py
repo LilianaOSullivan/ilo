@@ -53,7 +53,7 @@ def startup():
             print("Error parsing general_config. Using default Ilo configuration")
             config = yaml.safe_load(Config.GENERAL_CONFIG_DEFAULT)
         for k, v in config.items():
-            k,v = k.strip(),v.strip()
+            k, v = k.strip(), v.strip()
             if len(k) != 0 and len(v) != 0:
                 setattr(Config, k, v)
         del config
@@ -61,12 +61,16 @@ def startup():
     Helper.logger = _generalLogger
     _generalLogger.info("Connecting to Cassandra")
     try:
-        connection.setup([Config.Cassandra_address], Config.Cassandra_keyspace, protocol_version=3)
-        sync_table(users,[Config.Cassandra_keyspace])
-        sync_table(api_keys,[Config.Cassandra_keyspace])
+        connection.setup(
+            [Config.Cassandra_address], Config.Cassandra_keyspace, protocol_version=3
+        )
+        sync_table(users, [Config.Cassandra_keyspace])
+        sync_table(api_keys, [Config.Cassandra_keyspace])
     except Exception as e:
-        _generalLogger.critical('Failed to connect to Cassandra with the following exception')
-        _generalLogger.critical(e.with_traceback)
+        _generalLogger.critical(
+            "Failed to connect to Cassandra with the following exception"
+        )
+        _generalLogger.exception(e)
         sys.exit(1)
     _generalLogger.info("Starting FastAPI")
 

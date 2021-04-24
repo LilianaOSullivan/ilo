@@ -1,4 +1,5 @@
 import uuid
+import time
 
 from cassandra.cqlengine import columns
 from cassandra.cqlengine.management import sync_table
@@ -10,7 +11,8 @@ class users(Model):
     username   = columns.Text(required=True,index=True)
     password   = columns.Text(required=True)
     public_key = columns.Text(required=True)
-    logged_in  = columns.Boolean(default=False)
+    logged_in  = columns.Text(required=False,index=True)
+    login_time = columns.Double(default=time.time)
     api_key    = columns.Text(required=False)
 
 class api_keys(Model):

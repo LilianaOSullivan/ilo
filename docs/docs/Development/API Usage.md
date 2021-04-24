@@ -1,13 +1,13 @@
 # API Usage
 
-This section documents the usage of Ilo as a backend; It is highly recommended to have glanced at the [architecture](/Architecture) section, this section assumes some technical insights of Ilo.
+This section documents the usage of Ilo as a backend; It is highly recommended to have glanced at the [architecture](/ilo/Architecture) section, this section assumes some technical insights of Ilo.
 
 A client must at minimum support
 
 * **WebSockets**: This is a requirement for the sending of messages between Potion and the client.
 * **JSON Parsing**: The information exchanged within the WebSocket connection is in a JSON format, and as such is essential to the understanding of the information exchanged.
 
-To access public-facing methods, all information is exchanged using an appropriate HTTP method, and a [JSON schema](/Swagger#json-schema). These are documented within the [Swagger](/Swagger#json-schema) section.
+To access public-facing methods, all information is exchanged using an appropriate HTTP method, and a [JSON schema](/ilo/Swagger#json-schema). These are documented within the [Swagger](/ilo/Swagger#json-schema) section.
 
 ## Message Sending
 
@@ -29,7 +29,7 @@ An API Key can be obtained by sending a *POST* request to `/key`. The API will r
 
 ### User Creation
 
-A user can be created by sending a *POST* request to `/user`, with a JSON attached contained the required information, a sample has been provided below. Information on password requirements can be seen [here](/Swagger#user-creation)
+A user can be created by sending a *POST* request to `/user`, with a JSON attached contained the required information, a sample has been provided below. Information on password requirements can be seen [here](/ilo/Swagger#user-creation)
 
 ```json
 {

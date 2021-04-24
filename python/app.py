@@ -71,6 +71,7 @@ def startup():
             "Failed to connect to Cassandra with the following exception"
         )
         _generalLogger.exception(e)
+        print(e.with_traceback())
         sys.exit(1)
     _generalLogger.info("Starting FastAPI")
 

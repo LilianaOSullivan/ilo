@@ -3,7 +3,7 @@
 Ilo is an end-to-end encrypted messaging platform designed with modern technologies in mind. Users messages are encrypted with the content hidden from the server.<br><br>
 Ilo was created as a 4<sup>th</sup> year Software Development project at the Institute of Technology Carlow.
 
-**Source Code**: <a href="github.com">Github</a>
+**Source Code**: <a href="https://github.com/LilianaOSullivan/ilo">Github</a>
 
 Key Features:
 

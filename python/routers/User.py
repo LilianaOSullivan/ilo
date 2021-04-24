@@ -14,15 +14,52 @@ _hasher = PasswordHasher()
 _userLogger: logging.Logger = logging.getLogger("user")
 
 
-@UserRouter.options(path="/user/{username}")  # TODO: Create OpenAPI docs
+@UserRouter.options(
+    path="/user/{username}",
+    status_code=HTTPStatus.OK,
+    summary="Checks if a username exists.",
+    responses={
+        HTTPStatus.OK.value: {
+            "description": "Returned as a success if the username exists or not.",
+            "model": Detail,
+            "content": {
+                "application/json": {"example": {"detail": "true"}},
+            },
+        },
+    },
+)
 def usernameExists(username: str):
     query = users.objects(username=username)
     if query.count() > 0:
-        return {"detail": "Username Exists", "Exists": True}
-    return {"detail": "Username doesn't exist", "Exists": False}
+        return {"detail": "true"}
+    return {"detail": "false"}
 
 
-@UserRouter.get(path="/user/{username}")  # TODO: Create OpenAPI docs
+@UserRouter.get(
+    path="/user/{username}",
+    status_code=HTTPStatus.OK,
+    summary="Get the users public key.",
+    responses={
+        HTTPStatus.CONFLICT.value: {
+            "description": "Occurs if a username does not exists, or they are not logged in.",
+            "model": Detail,
+            "content": {
+                "application/json": {
+                    "example": {"detail": "The user Alex13 does not exist"}
+                },
+            },
+        },
+        HTTPStatus.OK.value: {
+            "description": "This is returned with the public key.",
+            "model": Detail,
+            "content": {
+                "application/json": {
+                    "example": {"detail": "rbdm4YHtR4d8ykwZ8DxL0SHDUQJ"}
+                },
+            },
+        },
+    },
+)
 def getPublicKey(username: str):
     query = users.objects(username=username)
     if query.count() == 0:
@@ -50,6 +87,26 @@ def getPublicKey(username: str):
                 },
             },
         },
+        HTTPStatus.BAD_GATEWAY.value: {
+            "description": "Occurs if the password does not meet minimum requirements.",
+            "model": Detail,
+            "content": {
+                "application/json": {
+                    "example": {
+                        "detail": "This password does not meet the minimum requirements."
+                    }
+                },
+            },
+        },
+        HTTPStatus.CREATED.value: {
+            "description": "Returned upon successful creation",
+            "model": Detail,
+            "content": {
+                "application/json": {
+                    "example": {"detail": "Successfully created Alex13"}
+                },
+            },
+        },
     },
 )
 def createUser(user: User):
@@ -67,7 +124,7 @@ def createUser(user: User):
         )
     if not Helper.validate_password(user.password):
         raise HTTPException(
-            status_code=HTTPStatus.CONFLICT,  # TODO This likely should be something else
+            status_code=HTTPStatus.BAD_REQUEST,
             detail="This password does not meet the minimum requirements.",
         )
     user.password = _hasher.hash(user.password)
@@ -87,11 +144,20 @@ def createUser(user: User):
     summary="Deletes a user.",
     responses={
         HTTPStatus.CONFLICT.value: {
-            "description": "Occurs if a username does not exists.",
+            "description": "Occurs if a username does not exists, or they are not logged in.",
             "model": Detail,
             "content": {
                 "application/json": {
                     "example": {"detail": "The user Alex13 does not exist"}
+                },
+            },
+        },
+        HTTPStatus.OK.value: {
+            "description": "This is returned on a successful deletion.",
+            "model": Detail,
+            "content": {
+                "application/json": {
+                    "example": {"detail": "Successfully deleted Alex13"}
                 },
             },
         },
@@ -119,8 +185,8 @@ def deleteUser(user: User):
         _hasher.verify(db_user.password, user.password)
     except (VerificationError, VerifyMismatchError):
         raise HTTPException(
-            status_code=HTTPStatus.BAD_REQUEST,
-            detail="Invalid Password or username",
+            status_code=HTTPStatus.CONFLICT,
+            detail=f"The user {user.username} does not exist or is not logged in.",
         )
     users.delete(db_user)
     _userLogger.info(f"Successfully deleted {user.username}")
@@ -132,19 +198,28 @@ def deleteUser(user: User):
     path="/user",
     status_code=HTTPStatus.OK,
     summary="Login a user.",
-    responses={  # TODO: This needs to be completed. Copied from another
-        HTTPStatus.CONFLICT.value: {
-            "description": "Occurs if a username does not exists.",
+    responses={
+        HTTPStatus.BAD_REQUEST.value: {
+            "description": "Occurs on a invalid API Key or if invalid information is sent.",
             "model": Detail,
             "content": {
                 "application/json": {
-                    "example": {"detail": "The user Alex13 does not exist"}
+                    "example": {"detail": "Invalid Password or username"}
+                },
+            },
+        },
+        HTTPStatus.OK.value: {
+            "description": "Returned on a successful login.",
+            "model": Detail,
+            "content": {
+                "application/json": {
+                    "example": {"detail": "Successful Login for Alex13"}
                 },
             },
         },
     },
 )
-def loginUser(request:Request,user: User):
+def loginUser(request: Request, user: User):
     _userLogger.info(f"Logging in {user.username} with key {user.api_key}")
     if not Helper.validate_APIKey(user.api_key):
         raise HTTPException(
@@ -155,7 +230,7 @@ def loginUser(request:Request,user: User):
     if query.count() == 0:
         raise HTTPException(
             status_code=HTTPStatus.BAD_REQUEST,
-            detail="Invalid Password or username",
+            detail="Invalid password or username",
         )
     db_user = query[0]
     try:
@@ -167,4 +242,4 @@ def loginUser(request:Request,user: User):
         )
     db_user.logged_in = request.client.host
     db_user.save()
-    return {"detail": "Successful Login"}
+    return {"detail": f"Successful Login for {user.username}"}

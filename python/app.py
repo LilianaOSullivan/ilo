@@ -18,7 +18,7 @@ def startup():
 
     import resource
 
-    ## Fixes an issue with either MongoDB or FastAPI (Assuming FastAPI). Too many open files error 24.
+    ## Fixes the issue "Too many open files error 24"
     ## https://stackoverflow.com/questions/2569620/socket-accept-error-24-to-many-open-files
     resource.setrlimit(resource.RLIMIT_NOFILE, (65536, 65536))
 
@@ -71,7 +71,7 @@ def startup():
             "Failed to connect to Cassandra with the following exception"
         )
         _generalLogger.exception(e)
-        print(e.with_traceback())
+        print(e)
         sys.exit(1)
     _generalLogger.info("Starting FastAPI")
 

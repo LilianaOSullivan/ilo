@@ -1,6 +1,11 @@
 {
     "python.pythonPath": "/usr/local/bin/python3",
     "cSpell.words": [
-        "cqlengine"
+        "CQLENG",
+        "NOFILE",
+        "RLIMIT",
+        "cqlengine",
+        "getenv",
+        "setrlimit"
     ]
 }

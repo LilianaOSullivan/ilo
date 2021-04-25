@@ -1,14 +1,13 @@
 import logging
 import time
 from http import HTTPStatus
+
+from cassandra.cqlengine import ValidationError
 from cassandra.cqlengine.query import DoesNotExist
-
-
+from CassandraModels import *
 from fastapi.exceptions import HTTPException
 from fastapi.routing import APIRouter
 from models import Detail
-from CassandraModels import *
-from cassandra.cqlengine import ValidationError
 
 # from cassandra.cqlengine.models import DoesNotExist
 
@@ -43,20 +42,20 @@ def createKey():
     summary="Delete an API Key",
     responses={
         HTTPStatus.BAD_REQUEST.value: {
-            "description": "Occurs on a invalid key submitted",
+            "description": "Occurs on a invalid formatted key submitted",
             "model": Detail,
             "content": {
                 "application/json": {
-                    "example": {"detail": "The API Key 123-456-789 is invalid"}
+                    "example": {"detail": "The key 123-456-789 is not a valid key"}
                 },
             },
         },
         HTTPStatus.NOT_FOUND.value: {
-            "description": "Occurs validly formated key that does not exist is submitted",
+            "description": "Occurs if a valid formated key is submitted but does not exist",
             "model": Detail,
             "content": {
                 "application/json": {
-                    "example": {"detail": "The API Key 123-456-789 does not exist"}
+                    "example": {"detail": "The key 123-456-789 does not exist"}
                 },
             },
         },
@@ -65,9 +64,7 @@ def createKey():
             "model": Detail,
             "content": {
                 "application/json": {
-                    "example": {
-                        "detail": "Successfully deleted 123-456-789 does not exist"
-                    }
+                    "example": {"detail": "Successfully deleted 123-456-789"}
                 },
             },
         },
@@ -75,17 +72,17 @@ def createKey():
 )
 def deleteKey(key: str):
     try:
-        key = api_keys.get(key_id=key)
-        api_keys.delete(key)
+        _key = api_keys.get(key_id=key)
+        api_keys.delete(_key)
     except ValidationError as ex:
         raise HTTPException(
             status_code=HTTPStatus.BAD_REQUEST.value,
-            detail=f"The APIKey {key} is not a valid key",
+            detail=f"The key {key} is not a valid key",
         )
     except DoesNotExist as e:
         raise HTTPException(
             status_code=HTTPStatus.NOT_FOUND.value,
-            detail=f"The APIKey {key} is does not exist",
+            detail=f"The key {key} does not exist",
         )
 
     return {"detail": f"Successfully deleted {key}"}

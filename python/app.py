@@ -22,6 +22,11 @@ def startup():
     ## https://stackoverflow.com/questions/2569620/socket-accept-error-24-to-many-open-files
     resource.setrlimit(resource.RLIMIT_NOFILE, (65536, 65536))
 
+    # Resolves warning around Cassandra.
+    # https://stackoverflow.com/questions/56745115/cassandra-warning-about-cqleng-allow-schema-management
+    if os.getenv("CQLENG_ALLOW_SCHEMA_MANAGEMENT") is None:
+        os.environ["CQLENG_ALLOW_SCHEMA_MANAGEMENT"] = "1"
+
     if not os.path.exists("logging_config.yaml"):
         with open("logging_config.yaml", "w") as f:
             f.write(Config.LOGGING_CONFIG_DEFAULT)

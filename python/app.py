@@ -24,7 +24,7 @@ def startup():
 
     # Resolves warning around Cassandra.
     # https://stackoverflow.com/questions/56745115/cassandra-warning-about-cqleng-allow-schema-management
-    if os.getenv("CQLENG_ALLOW_SCHEMA_MANAGEMENT") is None:
+    if os.getenv("CQLENG_ALLOW_SCHEMA_MANAGEMENT") is None: # pragma: no cover
         os.environ["CQLENG_ALLOW_SCHEMA_MANAGEMENT"] = "1"
 
     if not os.path.exists("logging_config.yaml"):
@@ -115,7 +115,7 @@ app.include_router(TestClient)
 app.include_router(potionRouter)
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": # pragma: no mutate # pragma: no cover
     import uvicorn
 
     uvicorn.run(app, host="0.0.0.0", port=8000)

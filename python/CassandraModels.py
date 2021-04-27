@@ -12,7 +12,7 @@ class users(Model):
     password = columns.Text(required=True)
     public_key = columns.Text(required=True)
     logged_in = columns.Text(required=False, index=True)
-    login_time = columns.Double(default=time.time)
+    login_time = columns.Double(required=False)
     api_key = columns.Text(required=False)
 
 

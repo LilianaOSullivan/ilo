@@ -28,6 +28,22 @@ def cassandra():
     sync_table(api_keys, [config["Cassandra_keyspace"]])
 
 
+@pytest.fixture()
+def apikey():
+    key = api_keys.create()
+    invalid_key = str(uuid.uuid4())
+    yield dict(
+        valid=str(key.key_id),
+        invalid=invalid_key,
+        invalid_correct_format=invalid_key,
+        invalid_incorrect_format="the-weft-and-weave-of-fate-guides",
+    )
+    try:
+        api_keys.delete(key)
+    except:
+        pass
+
+
 # @pytest.fixture(scope="function")
 # def db_cleanup():
 #     to_delete = yield

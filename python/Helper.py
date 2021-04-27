@@ -1,5 +1,8 @@
 import logging
 import re
+from cassandra.cqlengine import ValidationError
+
+from cassandra.cqlengine.query import DoesNotExist
 
 from CassandraModels import api_keys
 
@@ -20,8 +23,11 @@ def validate_APIKey(
     """
     if not (key := key.strip()):
         return False
-    query = api_keys.objects(key_id=key)
-    return False if query.count() == 0 else True
+    try:
+        query = api_keys.objects(key_id=key)
+        return False if query.count() == 0 else True
+    except ValidationError:
+        return False
 
 
 def validate_password(password: str) -> bool:

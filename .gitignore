@@ -1,12 +1,11 @@
-
 *.pyc
 *.crt
 *.key
 *.log
 *.DS_Store
-Python/py_client/__pycache__
-Python/py_client/users
-Python/py_client/users/private_key.pem
+python/py_client/__pycache__
+python/py_client/users
+python/__pycache__
 *.pyc
 *.pyc
 elixir/deps
@@ -17,3 +16,7 @@ docs/site
 showcase_website/documents
 showcase_website/images/PaulBarry.jpg
 showcase_website/images/Lily.jpg
+python/.mutmut-cache
+python/htmlcov
+python/html
+python/helpful_commands.yaml

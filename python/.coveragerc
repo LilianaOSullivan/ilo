@@ -1,0 +1,9 @@
+[run]
+branch = True
+omit =
+    tests/*
+    routers/TestClient.py
+    __init__.py
+    models.py
+    CassandraModels.py
+    mutmut_config.py

@@ -1,5 +1,52 @@
 import pytest
+import json
+
+public_key: str = "Ck1JSUpLUUlCQUFLQ0FnRUF1bWEzMWYzdUFqVlJSbTd0TTc3cXhVa1J4THpIek5sSEZZYlpCM0VBaVZqcHlhd0QKZ2tpODlFWThNbm81em9kZUJNOTZzL2YyNU1wNHRQZVFTUlNWU2k4YjBKR3c5aS95cFpNck5vQ05WTkZSMjRLMgpJZmxKOCtoZG5YNGk4ZWtkK0NHR0ErQWJIT0lCM2tDZ1ZDN3RYRjJMWCt5dU5uam1ZZTI2Y05kbkZOakpTclczCk1mVEx5Zmo1ZEJsa0loMk81QXhocklmeXhaalg5RUh2bmxNZjBRc0VjVFkwUGU4aHQyQVhJL2J6N3EzQlE2OEMKNVZoZmMrd0lPbzdyaSs4am96TDdvQUhSY0J2cmRGclBwMFpzQ3k3RXIxS0hvV1NaZFZldnp0ZTFXNUNVREJJLwo4aGFEN2MxcnRXdEVCY0h0U09BSnZNZ1NndkFLd3ROcjRxTjdZNUpOQjgya05GYzdpM3hGYUFyVmRTRnNDNm9rCm1EbDF1K0NsQVA5OEFERjIzQWcvbmFPR216dlZqWXJtc2JISFZsNUZDTXRLS0pxd1JYeTBmQmJacGJTaHUydisKTlBVa0Q5SlowcFY0NnBpUlB5MFAzN3hMazZSV0pzUTBHNjc1Q3d3VnExSUpFZEcvNVBSOXMyUjc5OTNHVzh0RgoxNVEzb2JNbSsyOEFFVlpEd0g5UmRLVWZndDU2dzV4bDk5Y2djMTdENTVqNE82bTE0OVJPend5dmJtZ3BnaWt1CjN0YkJoNXVRSDllWVNPVVNaaXM4SnVQVTAwOXRXV0JZOGEvTVA4YTVocmhSaGpyeUNUUEM4NlUxbzBETS9Sd1oKZ1R2cTFhcGg1VWlSV3AyTTBKN3lYY0EzYXQ3eWVhOC9nS2M2Yk5RQWQ0UC9zblNJai94V3lFZm9oTmtDQXdFQQpBUUtDQWdBRjd1cVhubTFZSWRFc09ZV0Y0ZVFiQ0Z3a2c4WWxXYk9HOW5qMmk4SXlzbGlXRVlwaFl0dUJqVnh4CnErSjhBSTJTMVhXSVZkS0VvNjJXR2J6blFweU02bC9MaUFrQlpuTW1FaitXek1rOWpsWE95UVB2VHI0cjlzcHkKRHF6aDZvNXpFcGdhTnFUam9BMjRxM0hKdERPeDFBMXhiYzU1ZXBMZmJQVXV1SUNMWnBUT1hXYzUwOFcxTUY1bApDUlkwU3N0blZyM2pnM0ZNR1FwNHQ5ZVVLeWV4QndBcXlBai9nVnJmVHRPZ2FBWTBPUHQvb2g5b3VhTW5oTGR2ClZtakkxbXdaNVZwMzZhUThiMlcrTHFkN29ZVE9FZnlkNndzdVYrT0FSaHl1YkJTQVdBNEtXS2l6UUptNFNsTmkKY3pTM1Y5NEJJRUVzYlQ3cVJEdEhkU1Rka2pWd0h2VEhETEo5RUxtT2VaREl5T3liMDVNOFI1SldBVElCMTRsUAordkZpbjZtR2MxL1d5QkExYWVhY045M1BoZ09NMU1MaUVXMjVYcFU0WU9JSWtnQnducDZGcC91UlZmc2E1K1JoCmsvdWdQT0JSLzdVQUpUWmRJTVRNYllNZHZXWEJ3T3V5RGpjSFVGVlNZSmw4eVFvb2VOT2N5RW40TTFJNEpwM3gKMVVkSW9obE14d1o3WGNkY3FuREo2bnNhRE82MDZieElackFQTXF4WStBMmFkQVhqRnhZSTJBZXhUN1BoRC9hZwpIVW1USHk0Qkc1UzRTLzR4dTA0TVNidW1lK2R0azRSb3BQVjYzb25nVmkweTN2MzcwalpXMjlkdnE2bXlZaDBWCmZBMkwzcG52enpQajBQem9QVURlNmdXcldZOVM3VEF0TjI1dGh6VXY0M3BBWXVJQlRRS0NBUUVBMlRSWG8rTVoKeXJVb1c3ZnNFM2xlUzJjT1cyZ2xuQTg5OG93K0R1MEYydUxDdUNxN3BlMkVZWUdDbFZEdE53NVpOa3BIWlkrdwp6dkZ5Sm1VcXFwNmxSQ1IrZ2dXYzhnUldOeHR5Zzc0dGRkUThoZWZxVUdFenliYTlGVDQ1UjZmNmcyNjBaR1B0CmMzNFRkM280RERVM2ZmRGNnYzRTc0orMDBLY3czaUNoY3hsOWVUWkZCaDN2dmxuUkh6NFRrUHFsYlFKNUJrWU8KdGhnQzdVNWhaZGVFNVBkaW1XUjY3RUZPWnFQWUhYTVFVd0d1YXdUQVRrUjFtTUZ1MzJGZ3c4UzliK2lyMmxqbwo2MUdnNTJmOFVSQXdhYkh3dGErUUVIWnNuMU8zeXRRZ25VVFl2anRFYXVuYUQwbmU5L3RxdC9uVGlzL1VEd0Y2CjFXTERXeWZVRDVBWnBRS0NBUUVBMjdIbW4xQkFzc0hSMEdWdlp5aWVmNmpJNDhYd1UwdzBpaEtrM09ZenB1T3cKSitMMVZLaE1oTEJLckZ3WDQwZVF1aTZWZDR4S0ZpN3U1U2Q0bXoyTnZmQUVYdnhqdjdLWGEyam1sYnFCMTVqYQp4Q2lVaFErMTVNdi9LQ0Qvd3g3UVA2bGtJMHNRUW1kbjBUdzJUV21jdDJkRE9vYlZneWc4SThpZXpMNnVwREF5CnVVczJkaHBSeFk3anRZMkUwTTdUbTFGUDhDUHdZZGV6d1JxR2pFako0cDA3Nlc1K2ROZVE4Rkl0ZnlLL1FNZWkKZFlNMFRob3IyV2hHMndJOGhCa1VxQWxiWTdmeFZ3VlpHdnpZaGdTdmN2cVBjMi9YWGNrUFJIM084TXN4L0dDLwpjT3BGSUx0VytJZlpTTmNXUG5JTHF2YVFUTHZwNGpVRHlBbUMwb2lRSlFLQ0FRQlVqSnA4OGo4cytCM1FyaVNZClpBcy9vTXNtNjhDUUlpTEVFckZwai94U2V5aS9GZXRicUx4NlZEYW50d3ZQL2FiZWlrV0dsRXVJRXRhVGVaZ0YKT0tJdWgySXpiTW51TDUvNzdaUkRFam1SLzE3YjVTNEJ3Z1N0eFpPTy9GekJ0dksrVE02dHNYUlNHOGFxSUlwRwp2a1J1b3Q3RExKdDc0Mzg0Sll6Uk9yUitJSE1HUndqUlc3L2lRZ1kwZWk2VnBldlZKanhFSSt0QUdOS3kyMnJ3CmdOZDdaWTBkRnM3K3ZtRXRkU1FBT3JVbENxZUJneVQwa3BPUU5lUFowb2NmVGF0TUw2OE4zTVEyTGQxTGx0L1MKRWxJMklvMEh2R0tBOWdoTWNRTS9VaG1yL291OGFVZTFzbmd1c1Z1NC9rWkpmVmRLVnFJK2dSMzJpRzV4UW15Ngo3aVg5QW9JQkFRQ3hud0d3YUhnR2pvR09GWlNlT003OHMzL0g5KzYzeWZMb2R1NW4wbzZNTGFYc2VhaVVDNFhoCitZNUdFQ2NZRUhKSXRRVVBKSk41bi9SeHZSbmJtVWFSL0Ezc3BlNFh2TktEZXNxQzM4bStmOHpQcjJkMHRTRUEKbkpYczRkRW05akMwWjhXWWEwWDRDaFo3cWt6VkJjQTQzL29ReFphMmRiODV4eWZzclhZUk5RNnRsTXV4Yk5JVQpBZFRFb21oeFVlYnZ1aXdCSVcxbURiazlOSzczbUpudzUrTGFkZ1V6ZmwybWp5cE5rZEJERmFTWmtieW1NSzZuCkZaSEQyK2tGZkNtaE9mOXpmZkpYd3ZFcHlxZGNvMGtla3NtTU1TNVVtd3dHK2hobndrRGxwV3JpWmVZQjhyVDgKTndsTHhPb3REcE8wWTZpREFhSzB5dHdGelByQ01Mc3BBb0lCQVFERlprTlcwVXc5bkhaa2tvNm03R3Q1VHJ3NwpVd2M0YWg2Rk1URy9CK1lJQTIvZTNpdDlNSWlCVENTd0NXdHM3ZFFScFNCTXdEOXB3Ylp2MVlVY2h2Q2J5SmpwCmFwVUpYMlppeTVINWtOUmNWempzeVhmSExrRmo4L21ocVRiNGJYS3dlaTlVcEJSMGdYdnNYRzN4V092S050SlUKT2pPMldiY0V4S0FoQTZLQkRDUXNiUXAvd2NsZ2NIT3VtUFFYa01LRFJpbGRKaXFQZDlpak9UcFNVUWVpZEMzQQo1TlRhTjY4eVN3R2dlMkd3L09IbE5oTHJEU0VrZEtRRk5tSHQvbWtlMVhIc2VXYXpCbk01YmdHeTB6ak1lS09aCnhxNDkySk14Z3IwTDlmcis3OTJHS2xRVXBhUCtzbnBEU2NPM3dqNHZEa1R3d3hOU2VES2wyTGNQcDNucQo="
+
 
 @pytest.mark.user
-def test_config_no_empty(client):
-    pass
+def test_create_user_no_unicode(client, apikey):
+    """Create user without unicode"""
+    data = {
+        "username": "moonbeam",
+        "password": "FeathersFallingOnFr3shSn0w!",
+        "public_key": "public_key",
+        "api_key": apikey["valid"],
+    }
+    response = client.post("/user", json=data)
+    assert response.status_code == 201
+    response_json = response.json()
+    assert "detail" in response_json
+    assert "Successfully created moonbeam" == response_json["detail"]
+
+
+@pytest.mark.user
+def test_create_user_with_unicode_username(client):
+    """Create user with unicode"""
+    data = {
+        "username": "moonbëam✨",
+        "password": "FeathersFallingOnFr3shSn0w!",
+        "public_key": public_key,
+        "api_key": "abd5c02d-ccaf-435e-ac50-b0b459b4e328",
+    }
+    response = client.post("/user", json=data)
+    assert response.status_code == 201
+    response_json = response.json()
+    assert "detail" in response_json
+    assert "Successfully created moonbëam✨" == response_json["detail"]
+
+
+@pytest.mark.user
+def test_create_user_with_unicode_username_password(client):
+    """Create user with unicode"""
+    data = {
+        "username": "FastAPI🚀🚀",
+        "password": "FeathersFallingOnFr3shSn0w!✨",
+        "public_key": public_key,
+        "api_key": "abd5c02d-ccaf-435e-ac50-b0b459b4e328",
+    }
+    response = client.post("/user", json=data)
+    assert response.status_code == 201
+    response_json = response.json()
+    assert "detail" in response_json
+    assert "Successfully created FastAPI🚀🚀" == response_json["detail"]

@@ -1,3 +1,3 @@
 Cassandra_address: "127.0.0.1"
 Cassandra_keyspace: "ilo"
-Potion_IP: "127.0.0.1"
+Potion_IP: "0.0.0.0:4000"

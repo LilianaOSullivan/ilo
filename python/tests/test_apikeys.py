@@ -1,6 +1,5 @@
 from uuid import UUID
 
-from cassandra.cqlengine import ValidationError
 from cassandra.cqlengine.query import DoesNotExist
 from CassandraModels import *
 from pytest import fail, mark
@@ -18,7 +17,7 @@ def test_create_key_format(client):
         fail("A none-UUID was returned")
     try:
         key = api_keys.get(key_id=key)
-    except DoesNotExist as e:
+    except DoesNotExist:
         fail("Failed to write to database")
 
 
@@ -59,16 +58,15 @@ def test_create_validate_UUID_version(client):
 
 
 @mark.apikeys
-def test_delete_removed_from_database(client):
+def test_delete_removed_from_database(client, apikey):
     """Ensures a key is deleted from a database"""
-    key = api_keys.create()
-    response = client.delete(f"/key/{key.key_id}")
+    response = client.delete(f"/key/{apikey['valid']}")
     assert response.status_code == 200
     json = response.json()
     assert "detail" in json
-    assert f"Successfully deleted {str(key.key_id)}" in json["detail"]
+    assert f"Successfully deleted {str(apikey['valid'])}" in json["detail"]
     try:
-        key = api_keys.get(key_id=key.key_id)
+        key = api_keys.get(key_id=apikey["valid"])
     except DoesNotExist:
         return
     fail("API Key was not removed from the database")
@@ -86,11 +84,12 @@ def test_delete_invalid_key_incorrect_format(client):
 
 
 @mark.apikeys
-def test_delete_invalid_key_correct_format(client):
+def test_delete_invalid_key_correct_format(client, apikey):
     """Sends a valid UUID that does not exist as a key"""
-    key = str(uuid.uuid4())
-    response = client.delete(f"/key/{key}")
+    response = client.delete(f"/key/{apikey['invalid_correct_format']}")
     json = response.json()
     assert response.status_code == 404
     assert "detail" in json
-    assert json["detail"] == f"The key {key} does not exist"
+    assert (
+        json["detail"] == f"The key {apikey['invalid_correct_format']} does not exist"
+    )

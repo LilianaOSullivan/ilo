@@ -1,5 +1,6 @@
 import logging
 from http import HTTPStatus
+from sys import breakpointhook
 
 import Helper
 from argon2 import PasswordHasher
@@ -116,7 +117,8 @@ def createUser(user: User):
             status_code=HTTPStatus.BAD_REQUEST,
             detail="Invalid API Key",
         )
-    if usernameExists(user.username)["Exists"]:
+    exists = usernameExists(user.username)["detail"] == 'true'
+    if exists:
         _userLogger.info(f"Username {user.username} already exists")
         raise HTTPException(
             status_code=HTTPStatus.CONFLICT,

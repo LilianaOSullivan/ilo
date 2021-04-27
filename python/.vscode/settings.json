@@ -6,6 +6,7 @@
         "RLIMIT",
         "cqlengine",
         "getenv",
+        "lling",
         "setrlimit"
     ]
 }

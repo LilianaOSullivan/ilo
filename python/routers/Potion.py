@@ -19,5 +19,5 @@ def loggedIn(request: Request, address: str = Form("address")):
     """
     if not request.client.host == Config.Potion_IP:
         raise HTTPException(status_code=HTTPStatus.UNAUTHORIZED)
-    query = users.objects(logged_in=request.client.host)
+    query = users.objects(logged_in=address)
     return True if query.count() > 0 else False

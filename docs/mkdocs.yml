@@ -11,6 +11,7 @@ theme:
         - navigation.instant
         - navigation.top
 plugins:
+    - search
     - with-pdf:
         cover_subtitle: Security as a universal tool
         #copyright: ANY TEXT

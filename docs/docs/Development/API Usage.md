@@ -13,9 +13,9 @@ To access public-facing methods, all information is exchanged using an appropria
 
 To send a message, the following pre-conditions must exist.
 
-* An API Key must be obtained [1](/Development/API Usage/#obtaining-an-api-key)
-* A user must be created [2](/Development/API Usage/#user-creation)
-* A user must be logged-in [3](/Development/API Usage/#log-a-user-in)
+* An API Key must be obtained [1](/ilo/Development/API Usage/#obtaining-an-api-key)
+* A user must be created [2](/ilo/Development/API Usage/#user-creation)
+* A user must be logged-in [3](/ilo/Development/API Usage/#log-a-user-in)
 
 ### Obtaining an API Key
 

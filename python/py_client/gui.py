@@ -29,7 +29,7 @@ def jsonify(m: str):
 
 
 class GUI:
-    def message(self,ws, m):
+    def message(self, ws, m):
         for decrypt in [self.decrypt_me, decrypt_other]:
             try:
                 received = base64.b64decode(m)
@@ -43,6 +43,7 @@ class GUI:
         self.textCons.insert(END, m + "\n\n")
         self.textCons.config(state=DISABLED)
         self.textCons.see(END)
+
     def __init__(self):
         self.Window = Tk()
         self.Window.withdraw()
@@ -57,8 +58,8 @@ class GUI:
     def goAhead(self, name):
         # ? This might not be needed
         self.private_key, self.public_key = helpers.get_personal_private_key(name)
-        self.encrypt_me = PKCS1_OAEP.new(public_key).encrypt
-        self.decrypt_me = PKCS1_OAEP.new(private_key).decrypt
+        self.encrypt_me = PKCS1_OAEP.new(self.public_key).encrypt
+        self.decrypt_me = PKCS1_OAEP.new(self.private_key).decrypt
 
         self.login.destroy()
         gui_layouts.chatroom(self, name)

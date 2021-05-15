@@ -63,7 +63,9 @@ struct ContentView: View {
         case .success(let message):
             switch message {
             case .string(let text):
-                model.all_messages.append(text)
+                if !model.all_messages.contains(text){
+                    model.all_messages.append(text)
+                }
                 print("Received string: \(text)")
             case .data(let data):
                 print("Received data: \(data)")

@@ -1,5 +1,4 @@
-f = open("mut.txt", "a")
-
+# f = open("mut.txt", "a")
 
 def pre_mutation(context):
     ignore_list = [
@@ -17,5 +16,5 @@ def pre_mutation(context):
     if filename in ignore_list:
         context.skip = True
 
-    if context.skip == False:
-        f.write(f"{str(context.__dict__)}\n")
+    # if context.skip == False:
+    #     f.write(f"{str(context.__dict__)}\n")
